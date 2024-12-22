@@ -1,11 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF">
 
-    <!-- Header -->
+    <!-- Header Section -->
     <TextView
         android:id="@+id/header_title"
         android:layout_width="wrap_content"
@@ -25,245 +24,25 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="30dp"
         android:layout_alignParentEnd="true"
-        android:src="@drawable/ic_menu"/>
-    <!-- -->
+        android:src="@drawable/ic_menu" />
 
-    <!-- Card Container -->
-    <ScrollView
-        android:id="@+id/card_scroll_view"
+    <!-- View for Cards (ListView) -->
+    <ListView
+        android:id="@+id/card_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_below="@id/header_title"
         android:layout_marginTop="10dp"
-        android:padding="20dp">
-
-        <LinearLayout
-            android:id="@+id/card_container"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <!-- Cards here as in your original XML -->
-
-            <!-- Card 1 -->
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginHorizontal="10dp"
-                app:cardCornerRadius="10dp"
-                app:cardElevation="4dp"
-                app:cardBackgroundColor="#E3DFFF">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="10dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="LinkedIn Applications"
-                        android:textSize="14sp"
-                        android:textColor="#003E36"
-                        android:fontFamily="sans-serif"
-                        android:fontWeight="600" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:text="Deichman, T Mobile ,Facebook, Google, Microsoft, Adobe, Accenture,Amazon, Figma, Infosys, InVision, Capgemini, Apple, Sketch, ThoughtWorks, Meta, ..."
-                        android:textSize="12sp"
-                        android:textColor="#80000000" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <!-- Card 2 -->
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginHorizontal="10dp"
-                app:cardCornerRadius="10dp"
-                app:cardElevation="4dp"
-                app:cardBackgroundColor="#FEE9E4">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="10dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="UX Design Principles"
-                        android:textSize="14sp"
-                        android:textColor="#003E36"
-                        android:fontFamily="sans-serif"
-                        android:fontWeight="600" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:text="lways prioritize user needs. Use simple navigation, readable fonts, and intuitive layouts to ensure a great user experience. Test designs early and iterate ..."
-                        android:textSize="12sp"
-                        android:textColor="#80000000" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <!-- Card 3 -->
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginHorizontal="10dp"
-                app:cardCornerRadius="10dp"
-                app:cardElevation="4dp"
-                app:cardBackgroundColor="#D7FEFF">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="10dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Responsive Design Checklist"
-                        android:textSize="14sp"
-                        android:textColor="#003E36"
-                        android:fontFamily="sans-serif"
-                        android:fontWeight="600" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:text="Verify designs on multiple screen sizes, optimize touch targets, use scalable typography, and ..."
-                        android:textSize="12sp"
-                        android:textColor="#80000000" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <!-- Card 4 -->
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginHorizontal="10dp"
-                app:cardCornerRadius="10dp"
-                app:cardElevation="4dp"
-                app:cardBackgroundColor="#D7FFDB">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="10dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Frontend Trends 2024"
-                        android:textSize="14sp"
-                        android:textColor="#003E36"
-                        android:fontFamily="sans-serif"
-                        android:fontWeight="600" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:text="Keep an eye on AI-assisted design tools, accessibility-first  ..."
-                        android:textSize="12sp"
-                        android:textColor="#80000000" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <!-- Card 5 -->
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginHorizontal="10dp"
-                app:cardCornerRadius="10dp"
-                app:cardElevation="4dp"
-                app:cardBackgroundColor="#D7EDFF">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="10dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Color Schemes for Apps"
-                        android:textSize="14sp"
-                        android:textColor="#003E36"
-                        android:fontFamily="sans-serif"
-                        android:fontWeight="600" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:text="Start by choosing a primary color that reflects your app's theme or branding. For example, blue evokes trust, ..."
-                        android:textSize="12sp"
-                        android:textColor="#80000000" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <!-- Card 6 -->
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginHorizontal="10dp"
-                app:cardCornerRadius="10dp"
-                app:cardElevation="4dp"
-                app:cardBackgroundColor="#FFF9CB">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="10dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Version Control with Git"
-                        android:textSize="14sp"
-                        android:textColor="#003E36"
-                        android:fontFamily="sans-serif"
-                        android:fontWeight="600" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:text="Branching: Always create separate branches for new features, bug fixes, or experiments. Use clear naming conventions such as feature/login-screen ..."
-                        android:textSize="12sp"
-                        android:textColor="#80000000" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-
-
-        </LinearLayout>
-    </ScrollView>
+        android:divider="@android:color/transparent"
+        android:dividerHeight="0dp"
+    android:padding="0dp"
+    android:scrollingCache="false"/>
 
     <!-- Floating Action Button (FAB) -->
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"
@@ -275,7 +54,6 @@
             android:backgroundTint="#2FB874"
             android:src="@android:drawable/ic_input_add"
             android:tint="@android:color/white" />
-
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </RelativeLayout>

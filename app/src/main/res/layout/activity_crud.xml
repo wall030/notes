@@ -3,163 +3,73 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:padding="16dp">
 
-    <!-- Back Arrow Icon -->
-    <ImageView
-        android:id="@+id/back_arrow_24"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginStart="16dp"
-        android:src="@drawable/back_arrow_24" />
-
-    <!-- Notes Text -->
-    <TextView
-        android:id="@+id/notes_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:layout_marginStart="5dp"
-        android:layout_toEndOf="@id/back_arrow_24"
-        android:text="Notes"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:textColor="#000" />
-
-    <!-- More Icon -->
-    <ImageView
-        android:id="@+id/more_24"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginTop="28dp"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="48dp"
-        android:src="@drawable/more_24" />
-
-    <!-- Delete Icon -->
-    <ImageView
-        android:id="@+id/delete_24"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginTop="28dp"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="16dp"
-        android:src="@drawable/delete_24" />
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/white"
+        android:elevation="4dp" />
 
     <!-- Title Text -->
-    <TextView
+    <EditText
         android:id="@+id/title_text"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="62dp"
-        android:layout_marginStart="16dp"
-        android:text="Figma Prototyping Tips"
+        android:layout_below="@id/toolbar"
+        android:layout_marginTop="16dp"
+        android:hint="Enter Title"
         android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="#000" />
 
-    <!-- Circle Indicators -->
+    <!-- Notes Container -->
     <LinearLayout
-        android:id="@+id/circle_container"
+        android:id="@+id/notes_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="93dp"
-        android:layout_marginStart="19dp"
-        android:orientation="horizontal"
-        android:layout_alignParentStart="true">
-
-        <!-- 10 Circles -->
-        <View
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginEnd="8dp"
-            android:background="@drawable/baseline_circle_1" />
-        <View
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginEnd="8dp"
-            android:background="@drawable/baseline_circle_2" />
-        <View
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginEnd="8dp"
-            android:background="@drawable/baseline_circle_3" />
-        <View
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginEnd="8dp"
-            android:background="@drawable/baseline_circle_4" />
-        <View
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginEnd="8dp"
-            android:background="@drawable/baseline_circle_5" />
-        <View
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginEnd="8dp"
-            android:background="@drawable/baseline_circle_6" />
-        <View
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginEnd="8dp"
-            android:background="@drawable/baseline_circle_7" />
-        <View
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginEnd="8dp"
-            android:background="@drawable/baseline_circle_8" />
-        <View
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginEnd="8dp"
-            android:background="@drawable/baseline_circle_9" />
-        <View
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginEnd="8dp"
-            android:background="@drawable/baseline_circle_10" />
-        <View
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginEnd="8dp"
-            android:background="@drawable/baseline_circle_11" />
-
+        android:layout_below="@id/title_text"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal">
     </LinearLayout>
 
     <!-- Paragraph -->
-    <TextView
+    <EditText
         android:id="@+id/paragraph_text"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="140dp"
-        android:layout_marginStart="14dp"
-        android:layout_marginEnd="14dp"
-        android:layout_marginBottom="29dp"
-        android:text="Use Auto-Layout for Flexibility:\nAuto-layout ensures your designs adapt dynamically to changes. For example, resizing a button or adding more text won't disrupt the spacing or alignment of other elements.\nCombine auto-layout with constraints for even more responsive design behaviors, especially for mobile-to-desktop prototyping.\n\nCreate Reusable Components:\nDesign components for buttons, cards, headers, and other repeated elements to ensure consistency throughout your project.\nUse variants to handle multiple states (e.g., hover, active, or disabled) and streamline prototyping interactions.\nUpdate a master component to reflect changes across all instances instantly.\n\nAdd Micro-Interactions for Realism:\nUse Figma's prototyping features to simulate hover effects, transitions, and animations, such as slide-ins or fades, to make your prototype feel interactive.\nAdd delays or easing effects to transitions for a smoother, more polished user experience.\nUse smart animations to simulate more complex interactions, such as card flips."
+        android:layout_height="0dp"
+        android:layout_below="@id/notes_container"
+        android:layout_above="@id/save_button"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:hint="Enter your notes here..."
         android:textSize="14sp"
-        android:textColor="#000" />
+        android:textColor="#000"
+        android:gravity="top"
+        android:inputType="textMultiLine"
+        android:scrollbars="vertical" />
+
+    <!-- Save Button -->
+    <Button
+        android:id="@+id/save_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#2FB874"
+        android:text="Save"
+        android:textColor="#FFFFFF" />
+
+    <!-- Delete Button -->
+    <ImageView
+        android:id="@+id/delete_24"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/delete_24" />
 </RelativeLayout>
