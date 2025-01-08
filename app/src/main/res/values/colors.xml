@@ -1,5 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <!-- Hintergrundfarbe -->
+    <color name="background_color_light">#FFFFFF</color> <!-- Für Light Mode -->
+    <color name="background_color_dark">#121212</color> <!-- Für Dark Mode -->
+
+    <!-- Textfarbe -->
+    <color name="text_color_primary">#003E36</color> <!-- Textfarbe für beide Modi -->
+    <color name="white">#FFFFFF</color>
+    <!-- Floating Action Button -->
+    <color name="fab_background">#2FB874</color> <!-- FAB Hintergrund für beide Modi -->
 </resources>

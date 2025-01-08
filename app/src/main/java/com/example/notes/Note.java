@@ -7,12 +7,14 @@ public class Note {
     private String title;
     private String content;
     private String timestamp;
+    private int categoryId;
 
-    public Note(int id, String title, String content, String timestamp) {
+    public Note(int id, String title, String content, String timestamp, int categoryId) {
         this.id = id;
         this.title = title;
         this.content = content;
         this.timestamp = timestamp;
+        this.categoryId = categoryId;
     }
 
     public String getTitle() {
@@ -49,5 +51,13 @@ public class Note {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
     }
 }

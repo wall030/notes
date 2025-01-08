@@ -1,31 +1,45 @@
 package com.example.notes;
 
 import android.content.Intent;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.notes.DetailPage;
-import com.example.notes.Note;
+import com.example.notes.persistence.DatabaseManager;
 
 import java.util.ArrayList;
+
 public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NoteViewHolder> {
 
     private ArrayList<Note> notes;
+    private NoteActionCallback callback;
 
     public NotesAdapter(ArrayList<Note> notes) {
         this.notes = notes;
     }
 
-    // Method to update the dataset and notify the adapter
-    public void updateNotes(ArrayList<Note> updatedNotes) {
-        this.notes.clear();
-        this.notes.addAll(updatedNotes);
-        notifyDataSetChanged(); // Notify RecyclerView to refresh
+    public void setNotes(ArrayList<Note> notes) {
+        this.notes = notes;
+        notifyDataSetChanged();
+    }
+
+    public ArrayList<Note> getNotes() {
+        return notes;
+    }
+
+    public void setNoteActionCallback(NoteActionCallback callback) {
+        this.callback = callback;
     }
 
     @NonNull
@@ -54,6 +68,15 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NoteViewHold
         return notes.size();
     }
 
+    public void removeItem(int position) {
+        notes.remove(position);
+        notifyItemRemoved(position);
+
+        if (notes.isEmpty()) {
+            System.out.println("Keine Notizen mehr vorhanden.");
+        }
+    }
+
     static class NoteViewHolder extends RecyclerView.ViewHolder {
         TextView title, content, timestamp;
 
@@ -63,5 +86,64 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NoteViewHold
             content = itemView.findViewById(R.id.card_content);
             timestamp = itemView.findViewById(R.id.note_timestamp);
         }
+    }
+
+    public static void attachSwipeToDelete(RecyclerView recyclerView, NotesAdapter adapter, DatabaseManager db) {
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                int position = viewHolder.getAdapterPosition();
+                Note note = adapter.getNotes().get(position);
+
+                if (direction == ItemTouchHelper.LEFT) {
+                    // Löschen
+                    try {
+                        db.deleteNoteById(note.getId());
+                        adapter.removeItem(position);
+                        if (adapter.callback != null) {
+                            adapter.callback.onNoteDeleted(note);
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        adapter.notifyItemChanged(position); // Wiederherstellen bei Fehler
+                    }
+                }
+            }
+
+            @Override
+            public void onChildDraw(@NonNull Canvas c, @NonNull RecyclerView recyclerView,
+                                    @NonNull RecyclerView.ViewHolder viewHolder, float dX, float dY,
+                                    int actionState, boolean isCurrentlyActive) {
+                Paint paint = new Paint();
+                paint.setColor(Color.RED);
+
+                // Hintergrund zeichnen
+                c.drawRoundRect((float) viewHolder.itemView.getRight() + dX, (float) viewHolder.itemView.getTop(),
+                        (float) viewHolder.itemView.getRight(), (float) viewHolder.itemView.getBottom(),16F, 16F, paint);
+
+                // Icon zeichnen
+                Drawable deleteIcon = ContextCompat.getDrawable(recyclerView.getContext(), R.drawable.delete_24);
+                int iconMargin = (viewHolder.itemView.getHeight() - deleteIcon.getIntrinsicHeight()) / 2;
+                int iconLeft = viewHolder.itemView.getRight() - iconMargin - deleteIcon.getIntrinsicWidth();
+                int iconRight = viewHolder.itemView.getRight() - iconMargin;
+                int iconTop = viewHolder.itemView.getTop() + iconMargin;
+                int iconBottom = iconTop + deleteIcon.getIntrinsicHeight();
+                deleteIcon.setBounds(iconLeft, iconTop, iconRight, iconBottom);
+                deleteIcon.draw(c);
+
+                super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
+            }
+        });
+
+        itemTouchHelper.attachToRecyclerView(recyclerView);
+    }
+
+    public interface NoteActionCallback {
+        void onNoteDeleted(Note note);
     }
 }

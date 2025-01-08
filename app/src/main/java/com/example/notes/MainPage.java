@@ -2,26 +2,23 @@ package com.example.notes;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
+import android.text.TextUtils;
+import android.widget.EditText;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.SearchView;
 
 import com.example.notes.persistence.DatabaseManager;
 
 import java.util.ArrayList;
 
-public class MainPage extends AppCompatActivity implements AdapterView.OnItemClickListener {
+public class MainPage extends GlobalActivity {
 
     private ArrayList<Note> notes = new ArrayList<>();
-    private ArrayAdapter<Note> adapter;
-    private ListView listView;
+    private ArrayList<Note> filteredNotes = new ArrayList<>();
+    private NotesAdapter adapter;
+    private RecyclerView recyclerView;
     private DatabaseManager db;
 
     @Override
@@ -30,71 +27,82 @@ public class MainPage extends AppCompatActivity implements AdapterView.OnItemCli
         setContentView(R.layout.activity_main);
 
         db = new DatabaseManager(this);
-        listView = findViewById(R.id.card_container);
-        listView.setOnItemClickListener(this);
 
-        // Button to add new notes
+        // RecyclerView einrichten
+        recyclerView = findViewById(R.id.card_container);
+        adapter = new NotesAdapter(filteredNotes);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        // Swipe-to-Delete aktivieren
+        NotesAdapter.attachSwipeToDelete(recyclerView, adapter, db);
+
+        // Floating Action Button
         findViewById(R.id.fab).setOnClickListener(view -> {
             Intent intent = new Intent(MainPage.this, DetailPage.class);
-            startActivityForResult(intent, 1);
+            startActivity(intent);
+        });
+
+        // Menü-Button für Einstellungen
+        findViewById(R.id.menu_icon).setOnClickListener(view -> {
+            Intent intent = new Intent(MainPage.this, SettingsActivity.class);
+            startActivity(intent);
+        });
+
+        // SearchBar einrichten
+        SearchView searchView = findViewById(R.id.search_view);
+        searchView.setIconifiedByDefault(false);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                filterNotes(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                filterNotes(newText);
+                return false;
+            }
         });
     }
 
     @Override
     protected void onStart() {
         super.onStart();
+        try {
+            // Lade alle Notizen
+            notes.clear();
+            notes.addAll(db.getAllNotes(this));
+            filteredNotes.clear();
+            filteredNotes.addAll(notes);
 
-        // Retrieve notes from the database
-        notes.clear();
-        notes.addAll(db.getAllNotes());
-
-        // Create ArrayAdapter and pass the layout for CardView item
-        adapter = new ArrayAdapter<>(this, R.layout.note_card, notes) {
-            @Override
-            public View getView(int position, View convertView, ViewGroup parent) {
-                if (convertView == null) {
-                    convertView = LayoutInflater.from(getContext()).inflate(R.layout.note_card, parent, false);
-                }
-
-                // Get the current note item
-                Note note = getItem(position);
-
-                // Find the views inside the CardView layout
-                TextView titleView = convertView.findViewById(R.id.card_title);
-                TextView contentView = convertView.findViewById(R.id.card_content);
-                TextView timestampView = convertView.findViewById(R.id.note_timestamp);
-
-                // Bind the note data to the views
-                if (note != null) {
-                    titleView.setText(note.getTitle());
-                    contentView.setText(note.getContent());
-                    timestampView.setText(note.getTimestampFromatted());
-                }
-
-                return convertView;
+            // Überprüfen, ob Notizen vorhanden sind
+            if (notes.isEmpty()) {
+                // Optional: Zeige eine Meldung oder einen Platzhalter
+                System.out.println("Keine Notizen vorhanden.");
             }
-        };
 
-        listView.setAdapter(adapter);
+            adapter.notifyDataSetChanged();
+        } catch (Exception e) {
+            e.printStackTrace();
+            // Optional: Zeige eine Fehlermeldung
+            System.out.println("Fehler beim Laden der Notizen: " + e.getMessage());
+        }
     }
 
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Intent intent = new Intent(this, DetailPage.class);
-        Note selectedNote = notes.get(position);
-        intent.putExtra("note_id", selectedNote.getId());
-        startActivityForResult(intent, 2);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (resultCode == RESULT_OK) {
-            if (data != null) {
-                notes.clear();
-                notes.addAll(db.getAllNotes());
+    private void filterNotes(String query) {
+        filteredNotes.clear();
+        if (TextUtils.isEmpty(query)) {
+            filteredNotes.addAll(notes);
+        } else {
+            for (Note note : notes) {
+                if (note.getTitle().toLowerCase().contains(query.toLowerCase()) ||
+                        note.getContent().toLowerCase().contains(query.toLowerCase())) {
+                    filteredNotes.add(note);
+                }
             }
         }
+        adapter.notifyDataSetChanged();
     }
 }

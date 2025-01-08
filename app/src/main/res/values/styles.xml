@@ -1,0 +1,18 @@
+<resources>
+
+    <style name="CustomSearchView" parent="Widget.AppCompat.SearchView">
+        <item name="queryBackground">@drawable/searchview_background</item>
+        <item name="android:background">@drawable/searchview_background</item>
+        <item name="android:textColorHint">#A0A0A0</item>
+        <item name="android:textColor">#333333</item>
+    </style>
+
+    <style name="CustomTextField" parent="Widget.AppCompat.SearchView">
+        <item name="queryBackground">@drawable/searchview_background</item>
+        <item name="android:background">@drawable/searchview_background</item>
+        <item name="android:textColorHint">#A0A0A0</item>
+        <item name="android:textColor">#333333</item>
+    </style>
+
+
+</resources>

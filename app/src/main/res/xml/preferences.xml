@@ -1,0 +1,20 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <SwitchPreferenceCompat
+        android:key="dark_mode"
+        android:title="Dark Mode"
+        android:summary="Aktiviere oder deaktiviere den Dark Mode"
+        android:defaultValue="false" />
+
+    <ListPreference
+        android:key="sort_by"
+        android:title="Sort Notes By"
+        android:defaultValue="timestamp"
+        android:entries="@array/sort_options"
+        android:entryValues="@array/sort_values"
+        android:summary="%s" />
+
+    <Preference
+        android:key="manage_categories"
+        android:title="Manage Categories"
+        android:summary="Add, Edit or Delete Categories" />
+</PreferenceScreen>

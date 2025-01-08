@@ -2,43 +2,63 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF">
+    android:background="?android:attr/windowBackground">
 
     <!-- Header Section -->
-    <TextView
-        android:id="@+id/header_title"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:id="@+id/header_section"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Header Title -->
+        <TextView
+            android:id="@+id/header_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="30dp"
+            android:fontFamily="sans-serif"
+            android:text="Notes"
+            android:textColor="#003E36"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <!-- Menu Icon -->
+        <ImageView
+            android:id="@+id/menu_icon"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="20dp"
+            android:src="@drawable/ic_menu" />
+    </RelativeLayout>
+
+    <!-- SearchBar -->
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/search_view"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginStart="20dp"
-        android:text="Notes"
-        android:textSize="22sp"
-        android:textColor="#003E36"
-        android:fontFamily="sans-serif"
-        android:textStyle="bold" />
+        android:layout_below="@id/header_section"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:iconifiedByDefault="false"
+        android:queryHint="Search notes"
+        style="@style/CustomSearchView"/>
 
-    <ImageView
-        android:id="@+id/menu_icon"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="30dp"
-        android:layout_alignParentEnd="true"
-        android:src="@drawable/ic_menu" />
 
-    <!-- View for Cards (ListView) -->
-    <ListView
+
+    <!-- RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/card_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/header_title"
+        android:layout_below="@id/search_view"
         android:layout_marginTop="10dp"
-        android:divider="@android:color/transparent"
-        android:dividerHeight="0dp"
-    android:padding="0dp"
-    android:scrollingCache="false"/>
+        android:scrollbars="vertical" />
 
-    <!-- Floating Action Button (FAB) -->
+    <!-- Floating Action Button -->
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
