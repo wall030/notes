@@ -32,7 +32,7 @@ public class CategoryManagementActivity extends AppCompatActivity {
         addCategoryButton = findViewById(R.id.add_category_button);
 
         // Set up RecyclerView
-        categoriesAdapter = new CategoriesAdapter(categoriesList);
+        categoriesAdapter = new CategoriesAdapter(categoriesList, this);
         categoryRecyclerView.setAdapter(categoriesAdapter);
         categoryRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -40,23 +40,16 @@ public class CategoryManagementActivity extends AppCompatActivity {
         loadCategories();
 
         // Add Category button
-        addCategoryButton.setOnClickListener(v -> {
-            // Show a dialog to add a new category
-            showAddCategoryDialog();
-        });
+        addCategoryButton.setOnClickListener(v -> showAddCategoryDialog());
     }
 
     private void loadCategories() {
-        // Fetch categories from the database and convert them to a list of strings
         DatabaseManager db = new DatabaseManager(this);
         categoriesList = db.getAllCategories().stream().map(Category::getName).collect(Collectors.toList());
-
-        // Notify adapter of data change
-        categoriesAdapter.notifyDataSetChanged();
+        categoriesAdapter.updateCategories(categoriesList);
     }
 
     private void showAddCategoryDialog() {
-        // Show a dialog to add a new category (use an EditText dialog)
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Add New Category");
 
@@ -64,11 +57,15 @@ public class CategoryManagementActivity extends AppCompatActivity {
         builder.setView(input);
 
         builder.setPositiveButton("Add", (dialog, which) -> {
-            String newCategory = input.getText().toString();
+            String newCategory = input.getText().toString().trim();
             if (!newCategory.isEmpty()) {
                 DatabaseManager db = new DatabaseManager(this);
-                db.insertCategory(newCategory);  // Add new category to the database
-                loadCategories();  // Reload the categories
+                if (categoriesList.contains(newCategory)) {
+                    Toast.makeText(this, "Category already exists", Toast.LENGTH_SHORT).show();
+                } else {
+                    db.insertCategory(newCategory);
+                    loadCategories();
+                }
             } else {
                 Toast.makeText(this, "Category name cannot be empty", Toast.LENGTH_SHORT).show();
             }

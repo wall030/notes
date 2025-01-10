@@ -5,9 +5,9 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.EditText;
 
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.appcompat.widget.SearchView;
 
 import com.example.notes.persistence.DatabaseManager;
 
@@ -30,12 +30,12 @@ public class MainPage extends GlobalActivity {
 
         // RecyclerView einrichten
         recyclerView = findViewById(R.id.card_container);
-        adapter = new NotesAdapter(filteredNotes);
+        adapter = new NotesAdapter(filteredNotes, db, this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         // Swipe-to-Delete aktivieren
-        NotesAdapter.attachSwipeToDelete(recyclerView, adapter, db);
+        NotesAdapter.attachSwipeToDelete(recyclerView, adapter, db, this);
 
         // Floating Action Button
         findViewById(R.id.fab).setOnClickListener(view -> {
@@ -73,7 +73,7 @@ public class MainPage extends GlobalActivity {
         try {
             // Lade alle Notizen
             notes.clear();
-            notes.addAll(db.getAllNotes(this));
+            notes.addAll(db.getAllNotes()); // Keine Argumente übergeben
             filteredNotes.clear();
             filteredNotes.addAll(notes);
 

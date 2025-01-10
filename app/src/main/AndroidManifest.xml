@@ -13,6 +13,7 @@
         android:theme="@style/Theme.Notes"
         tools:targetApi="31">
 
+        <!-- MainPage als Start-Aktivität -->
         <activity
             android:name=".MainPage"
             android:exported="true"
@@ -23,13 +24,19 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".DetailPage"
+        <!-- DetailPage -->
+        <activity
+            android:name=".DetailPage"
             android:exported="true" />
 
-        <!-- Deklaration der SettingsActivity -->
-        <activity android:name=".SettingsActivity"
+        <!-- SettingsActivity -->
+        <activity
+            android:name=".SettingsActivity"
             android:exported="true" />
 
+        <!-- EditNoteActivity (Hinzufügen der fehlenden Deklaration) -->
+        <activity
+            android:name=".EditNoteActivity"
+            android:exported="true" />
     </application>
-
 </manifest>

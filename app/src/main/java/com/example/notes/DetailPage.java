@@ -1,128 +1,121 @@
 package com.example.notes;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
-import android.widget.EditText;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.notes.persistence.DatabaseManager;
-import com.example.notes.util.DateUtil;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class DetailPage extends AppCompatActivity {
 
-    private EditText titleInput, contentInput;
+    private EditText titleEditText, contentEditText;
     private Spinner categorySpinner;
     private Button saveButton;
-    private ImageView manageCategoriesIcon;
 
-    final private DatabaseManager db = new DatabaseManager(this);
+    private DatabaseManager db;
+    private int noteId = -1;
+    private int selectedCategoryId = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_crud);
+        setContentView(R.layout.activity_detail);
 
-        // Setup the toolbar
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        db = new DatabaseManager(this);
 
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setTitle("");
+        // UI-Elemente initialisieren
+        titleEditText = findViewById(R.id.edit_note_title);
+        contentEditText = findViewById(R.id.edit_note_content);
+        categorySpinner = findViewById(R.id.category_spinner);
+        saveButton = findViewById(R.id.save_note_button);
+
+        // Notiz-ID aus Intent holen
+        noteId = getIntent().getIntExtra("note_id", -1);
+
+        // Notiz laden, falls vorhanden
+        if (noteId != -1) {
+            loadNoteDetails();
         }
 
-        // Initialize views
-        titleInput = findViewById(R.id.title_text);
-        contentInput = findViewById(R.id.paragraph_text);
-        saveButton = findViewById(R.id.save_button);
-        categorySpinner = findViewById(R.id.category_spinner);
-        manageCategoriesIcon = findViewById(R.id.manage_categories_icon);
-
-        // Load categories from the database
+        // Kategorien in Spinner laden
         loadCategories();
 
-        // Manage Categories icon click
-        manageCategoriesIcon.setOnClickListener(v -> {
-            Intent intent = new Intent(DetailPage.this, CategoryManagementActivity.class);
-            startActivity(intent);
-        });
-
-        // Check if we are editing an existing note
-        Intent intent = getIntent();
-        if (intent != null && intent.hasExtra("note_id")) {
-            int noteId = intent.getIntExtra("note_id", -1);
-            Note note = db.getNoteById(noteId);
-            if (note != null) {
-                titleInput.setText(note.getTitle());
-                contentInput.setText(note.getContent());
-                // Set the category in the spinner (this part needs to be adapted)
-                // assuming you have category ID stored in the note
-                setCategoryInSpinner(note.getCategoryId());
-            }
-        }
-
-        // Save button functionality
-        saveButton.setOnClickListener(view -> {
-            String title = titleInput.getText().toString();
-            String content = contentInput.getText().toString();
-            String timestamp = DateUtil.getCurrentTimestamp();
-            int selectedCategoryId = categorySpinner.getSelectedItemPosition(); // Get selected category ID
-
-            Intent resultIntent = new Intent();
-            resultIntent.putExtra("title", title);
-            resultIntent.putExtra("content", content);
-            resultIntent.putExtra("timestamp", timestamp);
-            resultIntent.putExtra("categoryId", selectedCategoryId);
-
-            if (intent != null && intent.hasExtra("note_id")) {
-                int noteId = intent.getIntExtra("note_id", -1);
-                db.updateNote(noteId, title, content, timestamp, selectedCategoryId);
-                resultIntent.putExtra("note_id", noteId);
-            } else {
-                db.insertNote(timestamp, title, content, selectedCategoryId); // Add category ID to the insert method
-            }
-
-            setResult(RESULT_OK, resultIntent);
-            finish();
-        });
+        // Speichern-Button konfigurieren
+        saveButton.setOnClickListener(v -> saveNote());
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            // Back arrow clicked
-            finish();
-            return true;
+    private void loadNoteDetails() {
+        Note note = db.getNoteById(noteId);
+        if (note != null) {
+            titleEditText.setText(note.getTitle());
+            contentEditText.setText(note.getContent());
+            selectedCategoryId = note.getCategoryId();
         }
-        return super.onOptionsItemSelected(item);
     }
 
     private void loadCategories() {
-        // Load categories from the database
-        List<String> categoryNames = db.getAllCategories().stream().map(Category::getName).collect(Collectors.toList());
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, categoryNames);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        categorySpinner.setAdapter(adapter);
-    }
+        List<Category> categories = db.getAllCategories();
+        List<String> categoryNames = new ArrayList<>();
+        for (Category category : categories) {
+            categoryNames.add(category.getName());
+        }
 
-    private void setCategoryInSpinner(int categoryId) {
-        // Set the selected category in the spinner (this logic needs to adapt according to your app structure)
-        List<Category> categoriesList = db.getAllCategories();
-        for (int i = 0; i < categoriesList.size(); i++) {
-            if (categoriesList.get(i).equals(categoryId)) {
+        // Spinner-Adapter konfigurieren
+        CategorySpinnerAdapter adapter = new CategorySpinnerAdapter(this, android.R.layout.simple_spinner_item, categories);
+        categorySpinner.setAdapter(adapter);
+
+        // Vorher ausgewählte Kategorie setzen
+        for (int i = 0; i < categories.size(); i++) {
+            if (categories.get(i).getId() == selectedCategoryId) {
                 categorySpinner.setSelection(i);
                 break;
             }
         }
+
+        // Kategorieauswahl überwachen
+        categorySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                // Aktualisiere die ausgewählte Kategorie-ID
+                selectedCategoryId = ((Category) parent.getItemAtPosition(position)).getId();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Keine Aktion erforderlich
+            }
+        });
+    }
+
+    private void saveNote() {
+        String title = titleEditText.getText().toString().trim();
+        String content = contentEditText.getText().toString().trim();
+        long timestamp = System.currentTimeMillis(); // Aktueller Zeitstempel
+
+        if (title.isEmpty() || content.isEmpty()) {
+            Toast.makeText(this, "Title and content cannot be empty", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (noteId == -1) {
+            // Neue Notiz speichern
+            db.insertNote(title, content, timestamp, selectedCategoryId);
+            Toast.makeText(this, "Note created", Toast.LENGTH_SHORT).show();
+        } else {
+            // Vorhandene Notiz aktualisieren
+            db.updateNote(noteId, title, content, timestamp, selectedCategoryId);
+            Toast.makeText(this, "Note updated", Toast.LENGTH_SHORT).show();
+        }
+
+        finish();
     }
 }
