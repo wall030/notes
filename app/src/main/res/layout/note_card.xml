@@ -24,6 +24,16 @@
             android:textColor="@android:color/black" />
 
         <!-- Inhalt der Notiz -->
+
+        <TextView
+            android:id="@+id/note_category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Kategorie"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="@android:color/holo_blue_dark" />
+
         <TextView
             android:id="@+id/card_content"
             android:layout_width="match_parent"
@@ -34,16 +44,9 @@
             android:textColor="@android:color/darker_gray" />
 
         <!-- Kategorie der Notiz -->
-        <TextView
-            android:id="@+id/note_category"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Kategorie"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textColor="@android:color/holo_blue_dark" />
 
         <!-- Zeitstempel der Notiz -->
+
         <TextView
             android:id="@+id/note_timestamp"
             android:layout_width="match_parent"

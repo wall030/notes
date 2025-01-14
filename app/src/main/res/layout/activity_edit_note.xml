@@ -1,37 +1,112 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="@color/white"
     android:padding="16dp">
 
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/white"
+        android:elevation="4dp">
+
+        <!-- Save Button in Toolbar -->
+        <Button
+            android:id="@+id/save_note_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="#2FB874"
+            android:text="Save"
+            android:textColor="#FFFFFF" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <!-- Title Text -->
     <EditText
         android:id="@+id/edit_note_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Title"
-        android:textSize="18sp" />
+        android:layout_below="@id/toolbar"
+        android:layout_marginTop="16dp"
+        android:hint="Enter Title"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/edit_note_content"
+    <!-- Trennlinie unter Title -->
+    <View
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:hint="Content"
-        android:textSize="16sp"
-        android:gravity="top"
-        android:inputType="textMultiLine"
-        android:minLines="10" />
+        android:layout_height="1dp"
+        android:layout_below="@id/edit_note_title"
+        android:layout_marginTop="8dp"
+        android:background="#D1D1D1" />
 
+    <!-- Category TextView -->
+    <TextView
+        android:id="@+id/category_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_note_title"
+        android:layout_marginTop="16dp"
+        android:text="Select Category"
+        android:textSize="16sp"
+        android:textColor="#333" />
+
+    <!-- Category Spinner (Dropdown) -->
     <Spinner
         android:id="@+id/category_spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp" />
+        android:layout_below="@id/category_text"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/spinner_background"
+        android:padding="10dp" />
 
-    <Button
-        android:id="@+id/save_note_button"
+    <!-- Trennlinie unter Spinner -->
+    <View
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Save"
-        android:layout_marginTop="16dp" />
-</LinearLayout>
+        android:layout_height="1dp"
+        android:layout_below="@id/category_spinner"
+        android:layout_marginTop="8dp"
+        android:background="#D1D1D1" />
+
+    <!-- Manage Categories Icon -->
+    <ImageView
+        android:id="@+id/manage_categories_icon"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/baseline_circle_1"
+        android:contentDescription="Manage Categories" />
+
+    <!-- Paragraph -->
+    <EditText
+        android:id="@+id/edit_note_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_below="@id/category_spinner"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="16dp"
+        android:background="#FFFFFF"
+        android:gravity="top"
+        android:hint="Enter your notes here..."
+        android:inputType="textMultiLine"
+        android:scrollbars="vertical"
+        android:textColor="#000"
+        android:textSize="14sp" />
+
+    <!-- Delete Button -->
+    <ImageView
+        android:id="@+id/delete_24"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/delete_24" />
+</RelativeLayout>

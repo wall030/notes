@@ -1,6 +1,8 @@
 package com.example.notes;
 
 import android.os.Bundle;
+import android.text.InputType;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -22,17 +24,20 @@ public class CategoryManagementActivity extends AppCompatActivity {
     private Button addCategoryButton;
     private CategoriesAdapter categoriesAdapter;
     private List<String> categoriesList = new ArrayList<>();
+    private DatabaseManager db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category_management);
 
+        db = new DatabaseManager(this);
+
         categoryRecyclerView = findViewById(R.id.category_recycler_view);
         addCategoryButton = findViewById(R.id.add_category_button);
 
         // Set up RecyclerView
-        categoriesAdapter = new CategoriesAdapter(categoriesList, this);
+        categoriesAdapter = new CategoriesAdapter(categoriesList, this, db);
         categoryRecyclerView.setAdapter(categoriesAdapter);
         categoryRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -44,8 +49,9 @@ public class CategoryManagementActivity extends AppCompatActivity {
     }
 
     private void loadCategories() {
-        DatabaseManager db = new DatabaseManager(this);
-        categoriesList = db.getAllCategories().stream().map(Category::getName).collect(Collectors.toList());
+        categoriesList = db.getAllCategories().stream()
+                .map(Category::getName)
+                .collect(Collectors.toList());
         categoriesAdapter.updateCategories(categoriesList);
     }
 
@@ -53,25 +59,42 @@ public class CategoryManagementActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Add New Category");
 
+        // Create EditText for category input
         EditText input = new EditText(this);
+        input.setHint("Enter Category Name");
+        input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_SENTENCES);
+        input.setFocusable(true);
+        input.setFocusableInTouchMode(true);
+
         builder.setView(input);
 
-        builder.setPositiveButton("Add", (dialog, which) -> {
-            String newCategory = input.getText().toString().trim();
-            if (!newCategory.isEmpty()) {
-                DatabaseManager db = new DatabaseManager(this);
+        builder.setPositiveButton("Add", null);
+        builder.setNegativeButton("Cancel", (dialog, which) -> dialog.dismiss());
+
+        AlertDialog dialog = builder.create();
+
+        // Set up button logic after dialog is shown
+        dialog.setOnShowListener(d -> {
+            Button addButton = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
+            addButton.setOnClickListener(v -> {
+                String newCategory = input.getText().toString().trim();
+                if (newCategory.isEmpty()) {
+                    input.setError("Category name cannot be empty");
+                    return;
+                }
+
                 if (categoriesList.contains(newCategory)) {
                     Toast.makeText(this, "Category already exists", Toast.LENGTH_SHORT).show();
                 } else {
                     db.insertCategory(newCategory);
                     loadCategories();
+                    Toast.makeText(this, "Category added", Toast.LENGTH_SHORT).show();
+                    dialog.dismiss();
                 }
-            } else {
-                Toast.makeText(this, "Category name cannot be empty", Toast.LENGTH_SHORT).show();
-            }
+            });
         });
 
-        builder.setNegativeButton("Cancel", null);
-        builder.show();
+        dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+        dialog.show();
     }
 }

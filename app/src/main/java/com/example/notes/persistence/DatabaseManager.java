@@ -39,7 +39,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
         // Tabelle für Kategorien
         String createCategoriesTable = "CREATE TABLE " + TABLE_CATEGORIES + " (" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "name TEXT" +
+                "name TEXT UNIQUE" +
                 ")";
         db.execSQL(createCategoriesTable);
     }
@@ -51,8 +51,109 @@ public class DatabaseManager extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    // CRUD-Operationen für Notizen
+    // CRUD-Operationen für Kategorien
+    public void insertCategory(String name) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("name", name);
+        db.insert(TABLE_CATEGORIES, null, values);
+    }
 
+    public List<Category> getAllCategories() {
+        List<Category> categories = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(TABLE_CATEGORIES, null, null, null, null, null, "name ASC");
+
+        if (cursor != null && cursor.moveToFirst()) {
+            do {
+                Category category = new Category(
+                        cursor.getInt(cursor.getColumnIndexOrThrow("id")),
+                        cursor.getString(cursor.getColumnIndexOrThrow("name"))
+                );
+                categories.add(category);
+            } while (cursor.moveToNext());
+            cursor.close();
+        }
+
+        return categories;
+    }
+    public List<String> getAllCategoriesAsStringList() {
+        List<String> categoryNames = new ArrayList<>();
+        List<Category> categories = getAllCategories(); // Ruft die bestehende Methode auf
+        for (Category category : categories) {
+            categoryNames.add(category.getName());
+        }
+        return categoryNames;
+    }
+
+    public int getCategoryIdByName(String name) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(TABLE_CATEGORIES, new String[]{"id"}, "name = ?", new String[]{name}, null, null, null);
+
+        if (cursor != null && cursor.moveToFirst()) {
+            int id = cursor.getInt(cursor.getColumnIndexOrThrow("id"));
+            cursor.close();
+            return id;
+        }
+
+        if (cursor != null) {
+            cursor.close();
+        }
+        return -1; // Keine Kategorie gefunden
+    }
+
+    public boolean isCategoryInUse(int categoryId) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(TABLE_NOTES, null, "category_id = ?", new String[]{String.valueOf(categoryId)}, null, null, null);
+
+        boolean isInUse = cursor != null && cursor.getCount() > 0;
+
+        if (cursor != null) {
+            cursor.close();
+        }
+        return isInUse;
+    }
+
+    public boolean safeDeleteCategoryById(int categoryId) {
+        if (!isCategoryInUse(categoryId)) {
+            deleteCategoryById(categoryId);
+            return true;
+        }
+        return false;
+    }
+
+    public void deleteCategoryById(int categoryId) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_CATEGORIES, "id = ?", new String[]{String.valueOf(categoryId)});
+    }
+
+    public void updateCategory(int categoryId, String name) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("name", name);
+        db.update(TABLE_CATEGORIES, values, "id = ?", new String[]{String.valueOf(categoryId)});
+    }
+
+    public Category getCategoryById(int categoryId) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(TABLE_CATEGORIES, null, "id = ?", new String[]{String.valueOf(categoryId)}, null, null, null);
+
+        if (cursor != null && cursor.moveToFirst()) {
+            Category category = new Category(
+                    cursor.getInt(cursor.getColumnIndexOrThrow("id")),
+                    cursor.getString(cursor.getColumnIndexOrThrow("name"))
+            );
+            cursor.close();
+            return category;
+        }
+
+        if (cursor != null) {
+            cursor.close();
+        }
+        return null; // Kategorie wurde nicht gefunden
+    }
+
+    // CRUD-Operationen für Notizen
     public void insertNote(String title, String content, long timestamp, int categoryId) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -117,57 +218,14 @@ public class DatabaseManager extends SQLiteOpenHelper {
         db.delete(TABLE_NOTES, "id = ?", new String[]{String.valueOf(noteId)});
     }
 
-    // CRUD-Operationen für Kategorien
-
-    public void insertCategory(String name) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put("name", name);
-        db.insert(TABLE_CATEGORIES, null, values);
-    }
-
-    public List<Category> getAllCategories() {
-        List<Category> categories = new ArrayList<>();
+    public int getLastInsertedNoteId() {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query(TABLE_CATEGORIES, null, null, null, null, null, "name ASC");
-
+        Cursor cursor = db.rawQuery("SELECT last_insert_rowid() AS id", null);
         if (cursor != null && cursor.moveToFirst()) {
-            do {
-                Category category = new Category(
-                        cursor.getInt(cursor.getColumnIndexOrThrow("id")),
-                        cursor.getString(cursor.getColumnIndexOrThrow("name"))
-                );
-                categories.add(category);
-            } while (cursor.moveToNext());
+            int id = cursor.getInt(cursor.getColumnIndexOrThrow("id"));
             cursor.close();
+            return id;
         }
-
-        return categories;
-    }
-
-    public Category getCategoryById(int categoryId) {
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query(TABLE_CATEGORIES, null, "id = ?", new String[]{String.valueOf(categoryId)}, null, null, null);
-        if (cursor != null && cursor.moveToFirst()) {
-            Category category = new Category(
-                    cursor.getInt(cursor.getColumnIndexOrThrow("id")),
-                    cursor.getString(cursor.getColumnIndexOrThrow("name"))
-            );
-            cursor.close();
-            return category;
-        }
-        return null;
-    }
-
-    public void deleteCategoryById(int categoryId) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_CATEGORIES, "id = ?", new String[]{String.valueOf(categoryId)});
-    }
-
-    public void updateCategory(int categoryId, String name) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put("name", name);
-        db.update(TABLE_CATEGORIES, values, "id = ?", new String[]{String.valueOf(categoryId)});
+        return -1; // Keine ID gefunden
     }
 }

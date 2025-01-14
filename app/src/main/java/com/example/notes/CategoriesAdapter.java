@@ -20,10 +20,12 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ca
 
     private List<String> categories;
     private Context context;
+    private DatabaseManager db;
 
-    public CategoriesAdapter(List<String> categories, Context context) {
+    public CategoriesAdapter(List<String> categories, Context context, DatabaseManager db) {
         this.categories = categories;
         this.context = context;
+        this.db = db;
     }
 
     public void updateCategories(List<String> newCategories) {
@@ -43,8 +45,9 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ca
         String category = categories.get(position);
         holder.categoryName.setText(category);
 
+        // Lange drücken, um die Kategorie zu löschen
         holder.itemView.setOnLongClickListener(v -> {
-            showEditDeleteDialog(category, position);
+            showDeleteCategoryDialog(category, position);
             return true;
         });
     }
@@ -54,61 +57,53 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ca
         return categories.size();
     }
 
-    private void showEditDeleteDialog(String category, int position) {
+    private void showDeleteCategoryDialog(String category, int position) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle("Edit or Delete Category");
+        builder.setTitle("Delete Category");
+        builder.setMessage("Are you sure you want to delete the category \"" + category + "\"?");
 
-        builder.setItems(new String[]{"Edit", "Delete"}, (dialog, which) -> {
-            DatabaseManager db = new DatabaseManager(context);
-            if (which == 0) {
-                showEditCategoryDialog(category, position);
-            } else if (which == 1) {
-                // Hole die ID der Kategorie und lösche sie
-                int categoryId = db.getAllCategories().stream()
-                        .filter(cat -> cat.getName().equals(category))
-                        .findFirst()
-                        .map(Category::getId)
-                        .orElse(-1);
-
-                if (categoryId != -1) {
-                    db.deleteCategoryById(categoryId);
+        builder.setPositiveButton("Delete", (dialog, which) -> {
+            int categoryId = db.getCategoryIdByName(category);
+            if (categoryId != -1) {
+                if (db.safeDeleteCategoryById(categoryId)) {
                     categories.remove(position);
                     notifyDataSetChanged();
+                    Toast.makeText(context, "Category deleted", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(context, "Error deleting category", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Category is in use and cannot be deleted", Toast.LENGTH_SHORT).show();
                 }
+            } else {
+                Toast.makeText(context, "Error deleting category", Toast.LENGTH_SHORT).show();
             }
         });
 
+        builder.setNegativeButton("Cancel", null);
         builder.show();
     }
 
-    private void showEditCategoryDialog(String oldCategory, int position) {
+    public void showAddCategoryDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle("Edit Category");
+        builder.setTitle("Add New Category");
 
-        EditText input = new EditText(context);
-        input.setText(oldCategory);
+        // Erstelle einen LinearLayout-Container für das EditText
+        final EditText input = new EditText(context);
+        input.setHint("Enter Category Name");
+        input.setFocusable(true);
+        input.setFocusableInTouchMode(true);
+        input.requestFocus();
+
+        // Setze das EditText in den Dialog
         builder.setView(input);
 
-        builder.setPositiveButton("Save", (dialog, which) -> {
+        builder.setPositiveButton("Add", (dialog, which) -> {
             String newCategory = input.getText().toString().trim();
             if (!newCategory.isEmpty()) {
-                DatabaseManager db = new DatabaseManager(context);
-
-                // Hole die ID der Kategorie und aktualisiere sie
-                int categoryId = db.getAllCategories().stream()
-                        .filter(cat -> cat.getName().equals(oldCategory))
-                        .findFirst()
-                        .map(Category::getId)
-                        .orElse(-1);
-
-                if (categoryId != -1) {
-                    db.updateCategory(categoryId, newCategory);
-                    categories.set(position, newCategory);
-                    notifyDataSetChanged();
+                if (categories.contains(newCategory)) {
+                    Toast.makeText(context, "Category already exists", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(context, "Error updating category", Toast.LENGTH_SHORT).show();
+                    db.insertCategory(newCategory);
+                    updateCategories(db.getAllCategoriesAsStringList()); // Liste aktualisieren
+                    Toast.makeText(context, "Category added", Toast.LENGTH_SHORT).show();
                 }
             } else {
                 Toast.makeText(context, "Category name cannot be empty", Toast.LENGTH_SHORT).show();
@@ -116,7 +111,10 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ca
         });
 
         builder.setNegativeButton("Cancel", null);
-        builder.show();
+
+        AlertDialog dialog = builder.create();
+        dialog.setOnShowListener(dlg -> input.requestFocus()); // Fokussiere das Eingabefeld
+        dialog.show();
     }
 
     static class CategoryViewHolder extends RecyclerView.ViewHolder {

@@ -4,39 +4,41 @@
 
     <application
         android:allowBackup="true"
-        android:dataExtractionRules="@xml/data_extraction_rules"
-        android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Notes"
-        tools:targetApi="31">
+        android:theme="@style/Theme.Notes">
 
-        <!-- MainPage als Start-Aktivität -->
+        <!-- Hauptseite der App -->
         <activity
             android:name=".MainPage"
-            android:exported="true"
-            android:theme="@style/Theme.Notes">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <!-- DetailPage -->
+        <!-- Aktivität für das Bearbeiten von Notizen -->
+        <activity
+            android:name=".EditNoteActivity"
+            android:exported="true" />
+
+        <!-- Aktivität für die Detailansicht einer Notiz -->
         <activity
             android:name=".DetailPage"
             android:exported="true" />
 
-        <!-- SettingsActivity -->
+        <!-- Aktivität für das Verwalten von Kategorien -->
+        <activity
+            android:name=".CategoryManagementActivity"
+            android:exported="true" />
+
+        <!-- Einstellungen der App -->
         <activity
             android:name=".SettingsActivity"
             android:exported="true" />
-
-        <!-- EditNoteActivity (Hinzufügen der fehlenden Deklaration) -->
-        <activity
-            android:name=".EditNoteActivity"
-            android:exported="true" />
     </application>
+
 </manifest>
