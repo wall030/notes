@@ -1,11 +1,21 @@
 <resources>
     <!-- Hintergrundfarbe -->
-    <color name="background_color_light">#FFFFFF</color> <!-- Für Light Mode -->
-    <color name="background_color_dark">#121212</color> <!-- Für Dark Mode -->
+    <color name="background_color_light">#FFFFFF</color>
+    <color name="background_color_dark">#121212</color>
 
     <!-- Textfarbe -->
-    <color name="text_color_primary">#003E36</color> <!-- Textfarbe für beide Modi -->
+    <color name="text_color_primary">#003E36</color>
     <color name="white">#FFFFFF</color>
+
     <!-- Floating Action Button -->
-    <color name="fab_background">#2FB874</color> <!-- FAB Hintergrund für beide Modi -->
+    <color name="fab_background">#2FB874</color>
+
+    <!-- Green Shades -->
+    <color name="green_light">#66BB6A</color>
+    <color name="green_dark">#388E3C</color>
+
+    <!-- Card Background -->
+    <color name="your_toggle_color">#ececec</color>
+    <color name="card_light_background">#0C2FB874</color>
+
 </resources>
