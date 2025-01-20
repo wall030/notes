@@ -16,6 +16,6 @@
 
     <!-- Card Background -->
     <color name="your_toggle_color">#ececec</color>
-    <color name="card_light_background">#0C2FB874</color>
+    <color name="card_light_background">#FFFFFF</color>
 
 </resources>
