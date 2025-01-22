@@ -1,11 +1,13 @@
 package com.example.notes;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.EditText;
 
 import androidx.appcompat.widget.SearchView;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -20,10 +22,13 @@ public class MainPage extends GlobalActivity {
     private NotesAdapter adapter;
     private RecyclerView recyclerView;
     private DatabaseManager db;
+    private SharedPreferences preferences;
+    private SharedPreferences.OnSharedPreferenceChangeListener preferenceChangeListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
         setContentView(R.layout.activity_main);
 
         db = new DatabaseManager(this);
@@ -65,15 +70,30 @@ public class MainPage extends GlobalActivity {
                 return false;
             }
         });
+
+        // Set up preference change listener
+        preferenceChangeListener = (sharedPreferences, key) -> {
+            if ("sort_by".equals(key)) {
+                loadNotes(sharedPreferences.getString("sort_by", "timestamp"));
+            }
+        };
+
+        // Register the listener
+        preferences.registerOnSharedPreferenceChangeListener(preferenceChangeListener);
+
     }
 
     @Override
     protected void onStart() {
         super.onStart();
+        loadNotes(preferences.getString("sort_by", "timestamp"));
+    }
+
+    private void loadNotes(String sortBy) {
         try {
             // Lade alle Notizen
             notes.clear();
-            notes.addAll(db.getAllNotes()); // Keine Argumente übergeben
+            notes.addAll(db.getAllNotes(sortBy));
             filteredNotes.clear();
             filteredNotes.addAll(notes);
 
@@ -104,5 +124,13 @@ public class MainPage extends GlobalActivity {
             }
         }
         adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (preferences != null && preferenceChangeListener != null) {
+            preferences.unregisterOnSharedPreferenceChangeListener(preferenceChangeListener);
+        }
     }
 }
