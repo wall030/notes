@@ -6,11 +6,6 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.preference.PreferenceFragmentCompat;
 import android.os.Bundle;
 
-import com.example.notes.persistence.DatabaseManager;
-
-import java.util.ArrayList;
-
-
 public class SettingsActivity extends GlobalActivity {
 
     @Override
@@ -22,6 +17,7 @@ public class SettingsActivity extends GlobalActivity {
                 .beginTransaction()
                 .replace(R.id.settings_container, new SettingsFragment())
                 .commit();
+        setTheme(R.style.PreferenceTheme);
     }
 
     public static class SettingsFragment extends PreferenceFragmentCompat {
@@ -29,7 +25,6 @@ public class SettingsActivity extends GlobalActivity {
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             setPreferencesFromResource(R.xml.preferences, rootKey);
 
-            // Dark Mode switch
             findPreference("dark_mode").setOnPreferenceChangeListener((preference, newValue) -> {
                 boolean isDarkMode = (boolean) newValue;
                 SharedPreferences preferences = requireContext().getSharedPreferences("AppPreferences", MODE_PRIVATE);
@@ -44,10 +39,8 @@ public class SettingsActivity extends GlobalActivity {
                 return true;
             });
 
-            // Sort By preference change listener
             findPreference("sort_by").setOnPreferenceChangeListener((preference, newValue) -> {
                 String sortBy = (String) newValue;
-                // Save the sort preference in SharedPreferences
                 SharedPreferences preferences = requireContext().getSharedPreferences("AppPreferences", MODE_PRIVATE);
                 SharedPreferences.Editor editor = preferences.edit();
                 editor.putString("SortBy", sortBy);
@@ -55,6 +48,13 @@ public class SettingsActivity extends GlobalActivity {
 
                 return true;
             });
+
+            findPreference("manage_categories").setOnPreferenceClickListener(preference -> {
+                Intent intent = new Intent(requireContext(), CategoryManagementActivity.class);
+                startActivity(intent);
+                return true;
+            });
+
         }
 
 

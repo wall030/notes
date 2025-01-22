@@ -11,6 +11,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.notes.persistence.DatabaseManager;
+import com.example.notes.util.DateUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -99,7 +100,7 @@ public class DetailPage extends AppCompatActivity {
     private void saveNote() {
         String title = titleEditText.getText().toString().trim();
         String content = contentEditText.getText().toString().trim();
-        long timestamp = System.currentTimeMillis(); // Aktueller Zeitstempel
+        String timestamp = DateUtil.getCurrentTimestamp();
 
         if (title.isEmpty() || content.isEmpty()) {
             Toast.makeText(this, "Title and content cannot be empty", Toast.LENGTH_SHORT).show();

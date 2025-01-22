@@ -51,7 +51,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NoteViewHold
 
         // Klick-Logik für das Bearbeiten einer Notiz
         holder.itemView.setOnClickListener(v -> {
-            Intent editIntent = new Intent(context, EditNoteActivity.class);
+            Intent editIntent = new Intent(context, DetailPage.class);
             editIntent.putExtra("note_id", note.getId());
             context.startActivity(editIntent);
         });

@@ -6,10 +6,10 @@ public class Note {
     private int id;
     private String title;
     private String content;
-    private long timestamp; // Ändere den Typ auf long
+    private String timestamp; // Ändere den Typ auf long
     private int categoryId;
 
-    public Note(int id, String title, String content, long timestamp, int categoryId) {
+    public Note(int id, String title, String content, String timestamp, int categoryId) {
         this.id = id;
         this.title = title;
         this.content = content;
@@ -33,15 +33,15 @@ public class Note {
         this.content = content;
     }
 
-    public long getTimestamp() {
+    public String getTimestamp() {
         return timestamp;
     }
 
     public String getTimestampFromatted() {
-        return DateUtil.formatTimestamp(String.valueOf(timestamp)); // Formatierung bleibt gleich
+        return DateUtil.formatTimestamp(timestamp);
     }
 
-    public void setTimestamp(long timestamp) {
+    public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
     }
 

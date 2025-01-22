@@ -1,61 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    card_view:cardCornerRadius="8dp"
-    card_view:cardElevation="4dp">
+    android:layout_marginLeft="16dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    android:layout_marginRight="16dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="1dp">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:padding="16dp">
 
-        <!-- Titel der Notiz -->
         <TextView
             android:id="@+id/card_title"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Titel"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="@android:color/black" />
 
-        <!-- Inhalt der Notiz -->
-
         <TextView
             android:id="@+id/note_category"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Kategorie"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textColor="@android:color/holo_blue_dark" />
+            android:textColor="@android:color/holo_blue_dark"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true" />
+
+        <TextView
+            android:id="@+id/note_timestamp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="@android:color/darker_gray"
+            android:layout_below="@id/card_title"
+            android:layout_alignStart="@id/card_title"
+            android:layout_marginTop="4dp" />
 
         <TextView
             android:id="@+id/card_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Inhalt"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@android:color/darker_gray" />
-
-        <!-- Kategorie der Notiz -->
-
-        <!-- Zeitstempel der Notiz -->
-
-        <TextView
-            android:id="@+id/note_timestamp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Zeitstempel"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textColor="@android:color/darker_gray" />
+            android:textColor="@android:color/darker_gray"
+            android:layout_toEndOf="@id/note_timestamp"
+            android:layout_below="@id/card_title"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="4dp"
+            android:maxLines="1"
+            android:ellipsize="end"/>
 
-    </LinearLayout>
+    </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

@@ -8,4 +8,6 @@
     <color name="white">#FFFFFF</color>
     <!-- Floating Action Button -->
     <color name="fab_background">#2FB874</color> <!-- FAB Hintergrund für beide Modi -->
+    <!-- Header Border -->
+    <color name="border_color">#6D6D6D</color>
 </resources>

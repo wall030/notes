@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.content.SharedPreferences;
 
 import com.example.notes.Category;
 import com.example.notes.Note;
@@ -14,11 +15,31 @@ import java.util.List;
 
 public class DatabaseManager extends SQLiteOpenHelper {
 
+    public static final int DB_VERSION = 1;
+    public static final String DB_NAME = "notes.db";
+
+    public static final String TABLE_NOTES = "notes";
+    public static final String COLUMN_NOTES_ID = "id";
+    public static final String COLUMN_NOTES_TITLE = "title";
+    public static final String COLUMN_NOTES_CONTENT = "content";
+    public static final String COLUMN_NOTES_CATEGORY_ID = "category_id";
+    public static final String COLUMN_NOTES_IS_FAVORITE = "is_favorite";
+    public static final String COLUMN_NOTES_TIMESTAMP = "timestamp";
+
+
+    public static final String TABLE_CATEGORIES = "categories";
+    public static final String COLUMN_CATEGORIES_ID = "id";
+    public static final String COLUMN_CATEGORIES_NAME = "name";
+
+
+
+
+    //dddddddddddddddddddddd
+
     private static final String DATABASE_NAME = "notes.db";
     private static final int DATABASE_VERSION = 1;
 
-    private static final String TABLE_NOTES = "notes";
-    private static final String TABLE_CATEGORIES = "categories";
+
 
     public DatabaseManager(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -154,7 +175,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
     }
 
     // CRUD-Operationen für Notizen
-    public void insertNote(String title, String content, long timestamp, int categoryId) {
+    public void insertNote(String title, String content, String timestamp, int categoryId) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("title", title);
@@ -164,26 +185,34 @@ public class DatabaseManager extends SQLiteOpenHelper {
         db.insert(TABLE_NOTES, null, values);
     }
 
-    public List<Note> getAllNotes() {
-        List<Note> notes = new ArrayList<>();
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query(TABLE_NOTES, null, null, null, null, null, "timestamp DESC");
+    public ArrayList<Note> getAllNotes(  ) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ArrayList<Note> noteList = new ArrayList<>();
 
+
+
+        // Query the notes table
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NOTES + " ORDER BY " + COLUMN_NOTES_TIMESTAMP + " DESC", null);
+
+        // Check if the cursor has data
         if (cursor != null && cursor.moveToFirst()) {
             do {
-                Note note = new Note(
-                        cursor.getInt(cursor.getColumnIndexOrThrow("id")),
-                        cursor.getString(cursor.getColumnIndexOrThrow("title")),
-                        cursor.getString(cursor.getColumnIndexOrThrow("content")),
-                        cursor.getLong(cursor.getColumnIndexOrThrow("timestamp")),
-                        cursor.getInt(cursor.getColumnIndexOrThrow("category_id"))
-                );
-                notes.add(note);
+                // Extract data from each row
+                int id = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_NOTES_ID));
+                String title = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_NOTES_TITLE));
+                String content = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_NOTES_CONTENT));
+                String timestamp = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_NOTES_TIMESTAMP));
+                int category = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_NOTES_CATEGORY_ID));
+
+                // Create a Note object and add it to the list
+                Note note = new Note(id, title, content, timestamp, category);
+                noteList.add(note);
+
             } while (cursor.moveToNext());
-            cursor.close();
         }
 
-        return notes;
+        cursor.close();
+        return noteList;
     }
 
     public Note getNoteById(int noteId) {
@@ -194,7 +223,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
                     cursor.getInt(cursor.getColumnIndexOrThrow("id")),
                     cursor.getString(cursor.getColumnIndexOrThrow("title")),
                     cursor.getString(cursor.getColumnIndexOrThrow("content")),
-                    cursor.getLong(cursor.getColumnIndexOrThrow("timestamp")),
+                    cursor.getString(cursor.getColumnIndexOrThrow("timestamp")),
                     cursor.getInt(cursor.getColumnIndexOrThrow("category_id"))
             );
             cursor.close();
@@ -203,7 +232,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
         return null;
     }
 
-    public void updateNote(int noteId, String title, String content, long timestamp, int categoryId) {
+    public void updateNote(int noteId, String title, String content, String timestamp, int categoryId) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("title", title);

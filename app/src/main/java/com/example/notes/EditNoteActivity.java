@@ -13,7 +13,7 @@ import com.example.notes.persistence.DatabaseManager;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/*
 public class EditNoteActivity extends AppCompatActivity {
 
     private DatabaseManager db;
@@ -121,3 +121,4 @@ public class EditNoteActivity extends AppCompatActivity {
         finish();
     }
 }
+*/
