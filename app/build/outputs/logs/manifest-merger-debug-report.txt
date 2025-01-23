@@ -1,0 +1,368 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/wong/Desktop/notes/app/src/main/AndroidManifest.xml:2:1-44:12
+INJECTED from /home/wong/Desktop/notes/app/src/main/AndroidManifest.xml:2:1-44:12
+INJECTED from /home/wong/Desktop/notes/app/src/main/AndroidManifest.xml:2:1-44:12
+INJECTED from /home/wong/Desktop/notes/app/src/main/AndroidManifest.xml:2:1-44:12
+MERGED from [androidx.databinding:viewbinding:8.7.2] /home/wong/.gradle/caches/8.9/transforms/29a0dc2591f47a11a4a13fdd039a51ec/transformed/viewbinding-8.7.2/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.preference:preference:1.2.1] /home/wong/.gradle/caches/8.9/transforms/935efbb8f908fb45ae6813783c681380/transformed/preference-1.2.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-common:2.8.5] /home/wong/.gradle/caches/8.9/transforms/af46b49abf114fc86fcdd0d985d2cb42/transformed/navigation-common-2.8.5/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-runtime:2.8.5] /home/wong/.gradle/caches/8.9/transforms/9de9c25181d26cb15d6a4efb017456cf/transformed/navigation-runtime-2.8.5/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-fragment:2.8.5] /home/wong/.gradle/caches/8.9/transforms/a30ab8a5748e7d3e6b6f2d556283ef56/transformed/navigation-fragment-2.8.5/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-ui:2.8.5] /home/wong/.gradle/caches/8.9/transforms/1355653cb7e6bf935b62d561a3849f6c/transformed/navigation-ui-2.8.5/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.material:material:1.12.0] /home/wong/.gradle/caches/8.9/transforms/6a9fa6acc1ee749a8e2ca0fe9aba21aa/transformed/material-1.12.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.constraintlayout:constraintlayout:2.2.0] /home/wong/.gradle/caches/8.9/transforms/efbb14df2a6b9060e02a1758d78c0606/transformed/constraintlayout-2.2.0/AndroidManifest.xml:2:1-9:12
+MERGED from [androidx.appcompat:appcompat-resources:1.7.0] /home/wong/.gradle/caches/8.9/transforms/7d75933b08c54fbcdd10ff270c329f56/transformed/appcompat-resources-1.7.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.appcompat:appcompat:1.7.0] /home/wong/.gradle/caches/8.9/transforms/4d7c372c564c1421761f56ed559de6d4/transformed/appcompat-1.7.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.cardview:cardview:1.0.0] /home/wong/.gradle/caches/8.9/transforms/362609724fadc22cc1ce60f7251f4656/transformed/cardview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.2.0] /home/wong/.gradle/caches/8.9/transforms/c79c6b82ae460c65f4a7d95bd2d80d41/transformed/slidingpanelayout-1.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /home/wong/.gradle/caches/8.9/transforms/4e6fcd956bea7957a681fd7920a654be/transformed/viewpager2-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.fragment:fragment:1.6.2] /home/wong/.gradle/caches/8.9/transforms/30a25563d567231ff25c9232e562fbd5/transformed/fragment-1.6.2/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.fragment:fragment-ktx:1.6.2] /home/wong/.gradle/caches/8.9/transforms/a9e3fd385a5853be49420b2583ddf1d9/transformed/fragment-ktx-1.6.2/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity:1.8.0] /home/wong/.gradle/caches/8.9/transforms/554d2503ae0b5ec9dd8b511396d34c84/transformed/activity-1.8.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity-ktx:1.8.0] /home/wong/.gradle/caches/8.9/transforms/eb1930dbb020266613807d1cd99c81d3/transformed/activity-ktx-1.8.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] /home/wong/.gradle/caches/8.9/transforms/e43f2ca5d33869e5ff6a556412e155a4/transformed/savedstate-ktx-1.2.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate:1.2.1] /home/wong/.gradle/caches/8.9/transforms/aa4dce2b7e1077e7439abf8e31cb8f19/transformed/savedstate-1.2.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.emoji2:emoji2-views-helper:1.3.0] /home/wong/.gradle/caches/8.9/transforms/b41de5795f2579051465aa26a866b7f8/transformed/emoji2-views-helper-1.3.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.emoji2:emoji2:1.3.0] /home/wong/.gradle/caches/8.9/transforms/8530266956caadc703ac54a29b2580fe/transformed/emoji2-1.3.0/AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.transition:transition:1.5.0] /home/wong/.gradle/caches/8.9/transforms/dcb14fc7100805afcec8279ca9250221/transformed/transition-1.5.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /home/wong/.gradle/caches/8.9/transforms/cc2d5b2541e588b0199e1cc6a1de8ae8/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /home/wong/.gradle/caches/8.9/transforms/4f9141bc90e87380e388236b50f22091/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] /home/wong/.gradle/caches/8.9/transforms/7779e73916b36ca7b9f1bb1506135e4c/transformed/loader-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.6.2] /home/wong/.gradle/caches/8.9/transforms/b177da8b4eaf559df4158fb711de118e/transformed/lifecycle-livedata-2.6.2/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.6.2] /home/wong/.gradle/caches/8.9/transforms/87445abaea53d9074153832f1d057ea1/transformed/lifecycle-livedata-core-2.6.2/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.6.2] /home/wong/.gradle/caches/8.9/transforms/971fe9d9235f697e44d57dcb29e050bc/transformed/lifecycle-livedata-core-ktx-2.6.2/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.6.2] /home/wong/.gradle/caches/8.9/transforms/fa1ff61dbc31ed24b042f8322ffa901f/transformed/lifecycle-viewmodel-2.6.2/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.6.2] /home/wong/.gradle/caches/8.9/transforms/930c6a13aa79346539284834513dc41e/transformed/lifecycle-runtime-ktx-2.6.2/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.6.2] /home/wong/.gradle/caches/8.9/transforms/255f9c640e3d94628dd28b431cd49f42/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2] /home/wong/.gradle/caches/8.9/transforms/5a22cb3d2ffe55e0502d8dc4e78ee3e8/transformed/lifecycle-viewmodel-ktx-2.6.2/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.6.2] /home/wong/.gradle/caches/8.9/transforms/68bde1fb8c5d8efc79dab3af3dfb7ea7/transformed/lifecycle-runtime-2.6.2/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.6.2] /home/wong/.gradle/caches/8.9/transforms/d471fe1ee1e2bfa9f50e43ce6cd28774/transformed/lifecycle-viewmodel-savedstate-2.6.2/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core-ktx:1.13.0] /home/wong/.gradle/caches/8.9/transforms/1ea8ad67e0fe6813136437462535bfc0/transformed/core-ktx-1.13.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] /home/wong/.gradle/caches/8.9/transforms/7fab44f53f34c7a943fe80192105c4b6/transformed/drawerlayout-1.1.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /home/wong/.gradle/caches/8.9/transforms/028fa667b1366b74f90042d86ece0819/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /home/wong/.gradle/caches/8.9/transforms/973822338e95d19f86c9e8af3091a87e/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /home/wong/.gradle/caches/8.9/transforms/656237a9b955bba5d7ed2d671aea3a75/transformed/vectordrawable-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] /home/wong/.gradle/caches/8.9/transforms/1d04812b0bdb1eb50ec5ea965cccfafe/transformed/recyclerview-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] /home/wong/.gradle/caches/8.9/transforms/d536848d112a7518e2a12f01ffb65c81/transformed/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.1.0] /home/wong/.gradle/caches/8.9/transforms/097b3c05890db184e5701f0514664305/transformed/customview-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.window:window:1.0.0] /home/wong/.gradle/caches/8.9/transforms/0b5a68d2a8618a2c1a2fc87898f4b434/transformed/window-1.0.0/AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.core:core:1.13.0] /home/wong/.gradle/caches/8.9/transforms/fc0d39662a5a92d1b27fe62c07598897/transformed/core-1.13.0/AndroidManifest.xml:17:1-30:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/wong/.gradle/caches/8.9/transforms/0b313896568471bfadc75c8667918fbd/transformed/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/wong/.gradle/caches/8.9/transforms/c35a2fd9454984fa3f16e62a5240a382/transformed/profileinstaller-1.4.0/AndroidManifest.xml:17:1-55:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/wong/.gradle/caches/8.9/transforms/1ab1f21f1f1b7db90a2b3a38c0e47641/transformed/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/wong/.gradle/caches/8.9/transforms/dca5aa39fc373972821e92e558740563/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/wong/.gradle/caches/8.9/transforms/0ba8c91d2629ff8cd4d15d4d3ed297eb/transformed/startup-runtime-1.1.1/AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.tracing:tracing:1.0.0] /home/wong/.gradle/caches/8.9/transforms/e7887430c8f77480f298477dc140de41/transformed/tracing-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /home/wong/.gradle/caches/8.9/transforms/84b1d6c0e482ed6e69cd3584edb41133/transformed/core-runtime-2.2.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] /home/wong/.gradle/caches/8.9/transforms/051947270ea6efc19b8180409a86c285/transformed/documentfile-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /home/wong/.gradle/caches/8.9/transforms/0be50f44f614e2243a20de3f660d03a5/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] /home/wong/.gradle/caches/8.9/transforms/b2a3ed1ffed1f024270ba9d1c657a130/transformed/print-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] /home/wong/.gradle/caches/8.9/transforms/8b205a2f79ff175198980f5b4f41472e/transformed/annotation-experimental-1.4.1/AndroidManifest.xml:2:1-7:12
+	package
+		INJECTED from /home/wong/Desktop/notes/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /home/wong/Desktop/notes/app/src/main/AndroidManifest.xml
+	xmlns:tools
+		ADDED from /home/wong/Desktop/notes/app/src/main/AndroidManifest.xml:3:5-51
+	android:versionCode
+		INJECTED from /home/wong/Desktop/notes/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/wong/Desktop/notes/app/src/main/AndroidManifest.xml:2:11-69
+application
+ADDED from /home/wong/Desktop/notes/app/src/main/AndroidManifest.xml:5:5-42:19
+INJECTED from /home/wong/Desktop/notes/app/src/main/AndroidManifest.xml:5:5-42:19
+MERGED from [com.google.android.material:material:1.12.0] /home/wong/.gradle/caches/8.9/transforms/6a9fa6acc1ee749a8e2ca0fe9aba21aa/transformed/material-1.12.0/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.12.0] /home/wong/.gradle/caches/8.9/transforms/6a9fa6acc1ee749a8e2ca0fe9aba21aa/transformed/material-1.12.0/AndroidManifest.xml:22:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.2.0] /home/wong/.gradle/caches/8.9/transforms/efbb14df2a6b9060e02a1758d78c0606/transformed/constraintlayout-2.2.0/AndroidManifest.xml:7:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.2.0] /home/wong/.gradle/caches/8.9/transforms/efbb14df2a6b9060e02a1758d78c0606/transformed/constraintlayout-2.2.0/AndroidManifest.xml:7:5-20
+MERGED from [androidx.emoji2:emoji2:1.3.0] /home/wong/.gradle/caches/8.9/transforms/8530266956caadc703ac54a29b2580fe/transformed/emoji2-1.3.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.emoji2:emoji2:1.3.0] /home/wong/.gradle/caches/8.9/transforms/8530266956caadc703ac54a29b2580fe/transformed/emoji2-1.3.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.6.2] /home/wong/.gradle/caches/8.9/transforms/255f9c640e3d94628dd28b431cd49f42/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.6.2] /home/wong/.gradle/caches/8.9/transforms/255f9c640e3d94628dd28b431cd49f42/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.window:window:1.0.0] /home/wong/.gradle/caches/8.9/transforms/0b5a68d2a8618a2c1a2fc87898f4b434/transformed/window-1.0.0/AndroidManifest.xml:24:5-31:19
+MERGED from [androidx.window:window:1.0.0] /home/wong/.gradle/caches/8.9/transforms/0b5a68d2a8618a2c1a2fc87898f4b434/transformed/window-1.0.0/AndroidManifest.xml:24:5-31:19
+MERGED from [androidx.core:core:1.13.0] /home/wong/.gradle/caches/8.9/transforms/fc0d39662a5a92d1b27fe62c07598897/transformed/core-1.13.0/AndroidManifest.xml:28:5-89
+MERGED from [androidx.core:core:1.13.0] /home/wong/.gradle/caches/8.9/transforms/fc0d39662a5a92d1b27fe62c07598897/transformed/core-1.13.0/AndroidManifest.xml:28:5-89
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/wong/.gradle/caches/8.9/transforms/c35a2fd9454984fa3f16e62a5240a382/transformed/profileinstaller-1.4.0/AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/wong/.gradle/caches/8.9/transforms/c35a2fd9454984fa3f16e62a5240a382/transformed/profileinstaller-1.4.0/AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/wong/.gradle/caches/8.9/transforms/dca5aa39fc373972821e92e558740563/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/wong/.gradle/caches/8.9/transforms/dca5aa39fc373972821e92e558740563/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/wong/.gradle/caches/8.9/transforms/0ba8c91d2629ff8cd4d15d4d3ed297eb/transformed/startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/wong/.gradle/caches/8.9/transforms/0ba8c91d2629ff8cd4d15d4d3ed297eb/transformed/startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+	android:extractNativeLibs
+		INJECTED from /home/wong/Desktop/notes/app/src/main/AndroidManifest.xml
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.13.0] /home/wong/.gradle/caches/8.9/transforms/fc0d39662a5a92d1b27fe62c07598897/transformed/core-1.13.0/AndroidManifest.xml:28:18-86
+	android:supportsRtl
+		ADDED from /home/wong/Desktop/notes/app/src/main/AndroidManifest.xml:10:9-35
+	android:label
+		ADDED from /home/wong/Desktop/notes/app/src/main/AndroidManifest.xml:8:9-41
+	android:roundIcon
+		ADDED from /home/wong/Desktop/notes/app/src/main/AndroidManifest.xml:9:9-54
+	android:icon
+		ADDED from /home/wong/Desktop/notes/app/src/main/AndroidManifest.xml:7:9-43
+	android:allowBackup
+		ADDED from /home/wong/Desktop/notes/app/src/main/AndroidManifest.xml:6:9-35
+	android:theme
+		ADDED from /home/wong/Desktop/notes/app/src/main/AndroidManifest.xml:11:9-43
+activity#com.example.notes.MainPage
+ADDED from /home/wong/Desktop/notes/app/src/main/AndroidManifest.xml:14:9-21:20
+	android:exported
+		ADDED from /home/wong/Desktop/notes/app/src/main/AndroidManifest.xml:16:13-36
+	android:name
+		ADDED from /home/wong/Desktop/notes/app/src/main/AndroidManifest.xml:15:13-37
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /home/wong/Desktop/notes/app/src/main/AndroidManifest.xml:17:13-20:29
+action#android.intent.action.MAIN
+ADDED from /home/wong/Desktop/notes/app/src/main/AndroidManifest.xml:18:17-69
+	android:name
+		ADDED from /home/wong/Desktop/notes/app/src/main/AndroidManifest.xml:18:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /home/wong/Desktop/notes/app/src/main/AndroidManifest.xml:19:17-77
+	android:name
+		ADDED from /home/wong/Desktop/notes/app/src/main/AndroidManifest.xml:19:27-74
+activity#com.example.notes.EditNoteActivity
+ADDED from /home/wong/Desktop/notes/app/src/main/AndroidManifest.xml:24:9-26:39
+	android:exported
+		ADDED from /home/wong/Desktop/notes/app/src/main/AndroidManifest.xml:26:13-36
+	android:name
+		ADDED from /home/wong/Desktop/notes/app/src/main/AndroidManifest.xml:25:13-45
+activity#com.example.notes.DetailPage
+ADDED from /home/wong/Desktop/notes/app/src/main/AndroidManifest.xml:29:9-31:39
+	android:exported
+		ADDED from /home/wong/Desktop/notes/app/src/main/AndroidManifest.xml:31:13-36
+	android:name
+		ADDED from /home/wong/Desktop/notes/app/src/main/AndroidManifest.xml:30:13-39
+activity#com.example.notes.CategoryManagementActivity
+ADDED from /home/wong/Desktop/notes/app/src/main/AndroidManifest.xml:34:9-36:39
+	android:exported
+		ADDED from /home/wong/Desktop/notes/app/src/main/AndroidManifest.xml:36:13-36
+	android:name
+		ADDED from /home/wong/Desktop/notes/app/src/main/AndroidManifest.xml:35:13-55
+activity#com.example.notes.SettingsActivity
+ADDED from /home/wong/Desktop/notes/app/src/main/AndroidManifest.xml:39:9-41:39
+	android:exported
+		ADDED from /home/wong/Desktop/notes/app/src/main/AndroidManifest.xml:41:13-36
+	android:name
+		ADDED from /home/wong/Desktop/notes/app/src/main/AndroidManifest.xml:40:13-45
+uses-sdk
+INJECTED from /home/wong/Desktop/notes/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/wong/Desktop/notes/app/src/main/AndroidManifest.xml
+INJECTED from /home/wong/Desktop/notes/app/src/main/AndroidManifest.xml
+MERGED from [androidx.databinding:viewbinding:8.7.2] /home/wong/.gradle/caches/8.9/transforms/29a0dc2591f47a11a4a13fdd039a51ec/transformed/viewbinding-8.7.2/AndroidManifest.xml:5:5-44
+MERGED from [androidx.databinding:viewbinding:8.7.2] /home/wong/.gradle/caches/8.9/transforms/29a0dc2591f47a11a4a13fdd039a51ec/transformed/viewbinding-8.7.2/AndroidManifest.xml:5:5-44
+MERGED from [androidx.preference:preference:1.2.1] /home/wong/.gradle/caches/8.9/transforms/935efbb8f908fb45ae6813783c681380/transformed/preference-1.2.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.preference:preference:1.2.1] /home/wong/.gradle/caches/8.9/transforms/935efbb8f908fb45ae6813783c681380/transformed/preference-1.2.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-common:2.8.5] /home/wong/.gradle/caches/8.9/transforms/af46b49abf114fc86fcdd0d985d2cb42/transformed/navigation-common-2.8.5/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common:2.8.5] /home/wong/.gradle/caches/8.9/transforms/af46b49abf114fc86fcdd0d985d2cb42/transformed/navigation-common-2.8.5/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-runtime:2.8.5] /home/wong/.gradle/caches/8.9/transforms/9de9c25181d26cb15d6a4efb017456cf/transformed/navigation-runtime-2.8.5/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-runtime:2.8.5] /home/wong/.gradle/caches/8.9/transforms/9de9c25181d26cb15d6a4efb017456cf/transformed/navigation-runtime-2.8.5/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-fragment:2.8.5] /home/wong/.gradle/caches/8.9/transforms/a30ab8a5748e7d3e6b6f2d556283ef56/transformed/navigation-fragment-2.8.5/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-fragment:2.8.5] /home/wong/.gradle/caches/8.9/transforms/a30ab8a5748e7d3e6b6f2d556283ef56/transformed/navigation-fragment-2.8.5/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-ui:2.8.5] /home/wong/.gradle/caches/8.9/transforms/1355653cb7e6bf935b62d561a3849f6c/transformed/navigation-ui-2.8.5/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-ui:2.8.5] /home/wong/.gradle/caches/8.9/transforms/1355653cb7e6bf935b62d561a3849f6c/transformed/navigation-ui-2.8.5/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.12.0] /home/wong/.gradle/caches/8.9/transforms/6a9fa6acc1ee749a8e2ca0fe9aba21aa/transformed/material-1.12.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.12.0] /home/wong/.gradle/caches/8.9/transforms/6a9fa6acc1ee749a8e2ca0fe9aba21aa/transformed/material-1.12.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.constraintlayout:constraintlayout:2.2.0] /home/wong/.gradle/caches/8.9/transforms/efbb14df2a6b9060e02a1758d78c0606/transformed/constraintlayout-2.2.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.constraintlayout:constraintlayout:2.2.0] /home/wong/.gradle/caches/8.9/transforms/efbb14df2a6b9060e02a1758d78c0606/transformed/constraintlayout-2.2.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.7.0] /home/wong/.gradle/caches/8.9/transforms/7d75933b08c54fbcdd10ff270c329f56/transformed/appcompat-resources-1.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.7.0] /home/wong/.gradle/caches/8.9/transforms/7d75933b08c54fbcdd10ff270c329f56/transformed/appcompat-resources-1.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.appcompat:appcompat:1.7.0] /home/wong/.gradle/caches/8.9/transforms/4d7c372c564c1421761f56ed559de6d4/transformed/appcompat-1.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.appcompat:appcompat:1.7.0] /home/wong/.gradle/caches/8.9/transforms/4d7c372c564c1421761f56ed559de6d4/transformed/appcompat-1.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] /home/wong/.gradle/caches/8.9/transforms/362609724fadc22cc1ce60f7251f4656/transformed/cardview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] /home/wong/.gradle/caches/8.9/transforms/362609724fadc22cc1ce60f7251f4656/transformed/cardview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.2.0] /home/wong/.gradle/caches/8.9/transforms/c79c6b82ae460c65f4a7d95bd2d80d41/transformed/slidingpanelayout-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.2.0] /home/wong/.gradle/caches/8.9/transforms/c79c6b82ae460c65f4a7d95bd2d80d41/transformed/slidingpanelayout-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /home/wong/.gradle/caches/8.9/transforms/4e6fcd956bea7957a681fd7920a654be/transformed/viewpager2-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /home/wong/.gradle/caches/8.9/transforms/4e6fcd956bea7957a681fd7920a654be/transformed/viewpager2-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.6.2] /home/wong/.gradle/caches/8.9/transforms/30a25563d567231ff25c9232e562fbd5/transformed/fragment-1.6.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment:1.6.2] /home/wong/.gradle/caches/8.9/transforms/30a25563d567231ff25c9232e562fbd5/transformed/fragment-1.6.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment-ktx:1.6.2] /home/wong/.gradle/caches/8.9/transforms/a9e3fd385a5853be49420b2583ddf1d9/transformed/fragment-ktx-1.6.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment-ktx:1.6.2] /home/wong/.gradle/caches/8.9/transforms/a9e3fd385a5853be49420b2583ddf1d9/transformed/fragment-ktx-1.6.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.8.0] /home/wong/.gradle/caches/8.9/transforms/554d2503ae0b5ec9dd8b511396d34c84/transformed/activity-1.8.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.8.0] /home/wong/.gradle/caches/8.9/transforms/554d2503ae0b5ec9dd8b511396d34c84/transformed/activity-1.8.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity-ktx:1.8.0] /home/wong/.gradle/caches/8.9/transforms/eb1930dbb020266613807d1cd99c81d3/transformed/activity-ktx-1.8.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-ktx:1.8.0] /home/wong/.gradle/caches/8.9/transforms/eb1930dbb020266613807d1cd99c81d3/transformed/activity-ktx-1.8.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] /home/wong/.gradle/caches/8.9/transforms/e43f2ca5d33869e5ff6a556412e155a4/transformed/savedstate-ktx-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] /home/wong/.gradle/caches/8.9/transforms/e43f2ca5d33869e5ff6a556412e155a4/transformed/savedstate-ktx-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] /home/wong/.gradle/caches/8.9/transforms/aa4dce2b7e1077e7439abf8e31cb8f19/transformed/savedstate-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] /home/wong/.gradle/caches/8.9/transforms/aa4dce2b7e1077e7439abf8e31cb8f19/transformed/savedstate-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.emoji2:emoji2-views-helper:1.3.0] /home/wong/.gradle/caches/8.9/transforms/b41de5795f2579051465aa26a866b7f8/transformed/emoji2-views-helper-1.3.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2-views-helper:1.3.0] /home/wong/.gradle/caches/8.9/transforms/b41de5795f2579051465aa26a866b7f8/transformed/emoji2-views-helper-1.3.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2:1.3.0] /home/wong/.gradle/caches/8.9/transforms/8530266956caadc703ac54a29b2580fe/transformed/emoji2-1.3.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.emoji2:emoji2:1.3.0] /home/wong/.gradle/caches/8.9/transforms/8530266956caadc703ac54a29b2580fe/transformed/emoji2-1.3.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.transition:transition:1.5.0] /home/wong/.gradle/caches/8.9/transforms/dcb14fc7100805afcec8279ca9250221/transformed/transition-1.5.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.transition:transition:1.5.0] /home/wong/.gradle/caches/8.9/transforms/dcb14fc7100805afcec8279ca9250221/transformed/transition-1.5.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /home/wong/.gradle/caches/8.9/transforms/cc2d5b2541e588b0199e1cc6a1de8ae8/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /home/wong/.gradle/caches/8.9/transforms/cc2d5b2541e588b0199e1cc6a1de8ae8/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /home/wong/.gradle/caches/8.9/transforms/4f9141bc90e87380e388236b50f22091/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /home/wong/.gradle/caches/8.9/transforms/4f9141bc90e87380e388236b50f22091/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /home/wong/.gradle/caches/8.9/transforms/7779e73916b36ca7b9f1bb1506135e4c/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /home/wong/.gradle/caches/8.9/transforms/7779e73916b36ca7b9f1bb1506135e4c/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.6.2] /home/wong/.gradle/caches/8.9/transforms/b177da8b4eaf559df4158fb711de118e/transformed/lifecycle-livedata-2.6.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.6.2] /home/wong/.gradle/caches/8.9/transforms/b177da8b4eaf559df4158fb711de118e/transformed/lifecycle-livedata-2.6.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.6.2] /home/wong/.gradle/caches/8.9/transforms/87445abaea53d9074153832f1d057ea1/transformed/lifecycle-livedata-core-2.6.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.6.2] /home/wong/.gradle/caches/8.9/transforms/87445abaea53d9074153832f1d057ea1/transformed/lifecycle-livedata-core-2.6.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.6.2] /home/wong/.gradle/caches/8.9/transforms/971fe9d9235f697e44d57dcb29e050bc/transformed/lifecycle-livedata-core-ktx-2.6.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.6.2] /home/wong/.gradle/caches/8.9/transforms/971fe9d9235f697e44d57dcb29e050bc/transformed/lifecycle-livedata-core-ktx-2.6.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.6.2] /home/wong/.gradle/caches/8.9/transforms/fa1ff61dbc31ed24b042f8322ffa901f/transformed/lifecycle-viewmodel-2.6.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.6.2] /home/wong/.gradle/caches/8.9/transforms/fa1ff61dbc31ed24b042f8322ffa901f/transformed/lifecycle-viewmodel-2.6.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.6.2] /home/wong/.gradle/caches/8.9/transforms/930c6a13aa79346539284834513dc41e/transformed/lifecycle-runtime-ktx-2.6.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.6.2] /home/wong/.gradle/caches/8.9/transforms/930c6a13aa79346539284834513dc41e/transformed/lifecycle-runtime-ktx-2.6.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.6.2] /home/wong/.gradle/caches/8.9/transforms/255f9c640e3d94628dd28b431cd49f42/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.6.2] /home/wong/.gradle/caches/8.9/transforms/255f9c640e3d94628dd28b431cd49f42/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2] /home/wong/.gradle/caches/8.9/transforms/5a22cb3d2ffe55e0502d8dc4e78ee3e8/transformed/lifecycle-viewmodel-ktx-2.6.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2] /home/wong/.gradle/caches/8.9/transforms/5a22cb3d2ffe55e0502d8dc4e78ee3e8/transformed/lifecycle-viewmodel-ktx-2.6.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.6.2] /home/wong/.gradle/caches/8.9/transforms/68bde1fb8c5d8efc79dab3af3dfb7ea7/transformed/lifecycle-runtime-2.6.2/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.6.2] /home/wong/.gradle/caches/8.9/transforms/68bde1fb8c5d8efc79dab3af3dfb7ea7/transformed/lifecycle-runtime-2.6.2/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.6.2] /home/wong/.gradle/caches/8.9/transforms/d471fe1ee1e2bfa9f50e43ce6cd28774/transformed/lifecycle-viewmodel-savedstate-2.6.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.6.2] /home/wong/.gradle/caches/8.9/transforms/d471fe1ee1e2bfa9f50e43ce6cd28774/transformed/lifecycle-viewmodel-savedstate-2.6.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core-ktx:1.13.0] /home/wong/.gradle/caches/8.9/transforms/1ea8ad67e0fe6813136437462535bfc0/transformed/core-ktx-1.13.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-ktx:1.13.0] /home/wong/.gradle/caches/8.9/transforms/1ea8ad67e0fe6813136437462535bfc0/transformed/core-ktx-1.13.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] /home/wong/.gradle/caches/8.9/transforms/7fab44f53f34c7a943fe80192105c4b6/transformed/drawerlayout-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] /home/wong/.gradle/caches/8.9/transforms/7fab44f53f34c7a943fe80192105c4b6/transformed/drawerlayout-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /home/wong/.gradle/caches/8.9/transforms/028fa667b1366b74f90042d86ece0819/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /home/wong/.gradle/caches/8.9/transforms/028fa667b1366b74f90042d86ece0819/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /home/wong/.gradle/caches/8.9/transforms/973822338e95d19f86c9e8af3091a87e/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /home/wong/.gradle/caches/8.9/transforms/973822338e95d19f86c9e8af3091a87e/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /home/wong/.gradle/caches/8.9/transforms/656237a9b955bba5d7ed2d671aea3a75/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /home/wong/.gradle/caches/8.9/transforms/656237a9b955bba5d7ed2d671aea3a75/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] /home/wong/.gradle/caches/8.9/transforms/1d04812b0bdb1eb50ec5ea965cccfafe/transformed/recyclerview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] /home/wong/.gradle/caches/8.9/transforms/1d04812b0bdb1eb50ec5ea965cccfafe/transformed/recyclerview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager:viewpager:1.0.0] /home/wong/.gradle/caches/8.9/transforms/d536848d112a7518e2a12f01ffb65c81/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /home/wong/.gradle/caches/8.9/transforms/d536848d112a7518e2a12f01ffb65c81/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.1.0] /home/wong/.gradle/caches/8.9/transforms/097b3c05890db184e5701f0514664305/transformed/customview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.1.0] /home/wong/.gradle/caches/8.9/transforms/097b3c05890db184e5701f0514664305/transformed/customview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.window:window:1.0.0] /home/wong/.gradle/caches/8.9/transforms/0b5a68d2a8618a2c1a2fc87898f4b434/transformed/window-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.window:window:1.0.0] /home/wong/.gradle/caches/8.9/transforms/0b5a68d2a8618a2c1a2fc87898f4b434/transformed/window-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.13.0] /home/wong/.gradle/caches/8.9/transforms/fc0d39662a5a92d1b27fe62c07598897/transformed/core-1.13.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.13.0] /home/wong/.gradle/caches/8.9/transforms/fc0d39662a5a92d1b27fe62c07598897/transformed/core-1.13.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/wong/.gradle/caches/8.9/transforms/0b313896568471bfadc75c8667918fbd/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/wong/.gradle/caches/8.9/transforms/0b313896568471bfadc75c8667918fbd/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/wong/.gradle/caches/8.9/transforms/c35a2fd9454984fa3f16e62a5240a382/transformed/profileinstaller-1.4.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/wong/.gradle/caches/8.9/transforms/c35a2fd9454984fa3f16e62a5240a382/transformed/profileinstaller-1.4.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/wong/.gradle/caches/8.9/transforms/1ab1f21f1f1b7db90a2b3a38c0e47641/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/wong/.gradle/caches/8.9/transforms/1ab1f21f1f1b7db90a2b3a38c0e47641/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/wong/.gradle/caches/8.9/transforms/dca5aa39fc373972821e92e558740563/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/wong/.gradle/caches/8.9/transforms/dca5aa39fc373972821e92e558740563/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/wong/.gradle/caches/8.9/transforms/0ba8c91d2629ff8cd4d15d4d3ed297eb/transformed/startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/wong/.gradle/caches/8.9/transforms/0ba8c91d2629ff8cd4d15d4d3ed297eb/transformed/startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.tracing:tracing:1.0.0] /home/wong/.gradle/caches/8.9/transforms/e7887430c8f77480f298477dc140de41/transformed/tracing-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.tracing:tracing:1.0.0] /home/wong/.gradle/caches/8.9/transforms/e7887430c8f77480f298477dc140de41/transformed/tracing-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /home/wong/.gradle/caches/8.9/transforms/84b1d6c0e482ed6e69cd3584edb41133/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /home/wong/.gradle/caches/8.9/transforms/84b1d6c0e482ed6e69cd3584edb41133/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /home/wong/.gradle/caches/8.9/transforms/051947270ea6efc19b8180409a86c285/transformed/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /home/wong/.gradle/caches/8.9/transforms/051947270ea6efc19b8180409a86c285/transformed/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /home/wong/.gradle/caches/8.9/transforms/0be50f44f614e2243a20de3f660d03a5/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /home/wong/.gradle/caches/8.9/transforms/0be50f44f614e2243a20de3f660d03a5/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /home/wong/.gradle/caches/8.9/transforms/b2a3ed1ffed1f024270ba9d1c657a130/transformed/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /home/wong/.gradle/caches/8.9/transforms/b2a3ed1ffed1f024270ba9d1c657a130/transformed/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] /home/wong/.gradle/caches/8.9/transforms/8b205a2f79ff175198980f5b4f41472e/transformed/annotation-experimental-1.4.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] /home/wong/.gradle/caches/8.9/transforms/8b205a2f79ff175198980f5b4f41472e/transformed/annotation-experimental-1.4.1/AndroidManifest.xml:5:5-44
+	android:targetSdkVersion
+		INJECTED from /home/wong/Desktop/notes/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/wong/Desktop/notes/app/src/main/AndroidManifest.xml
+provider#androidx.startup.InitializationProvider
+ADDED from [androidx.emoji2:emoji2:1.3.0] /home/wong/.gradle/caches/8.9/transforms/8530266956caadc703ac54a29b2580fe/transformed/emoji2-1.3.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.6.2] /home/wong/.gradle/caches/8.9/transforms/255f9c640e3d94628dd28b431cd49f42/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.6.2] /home/wong/.gradle/caches/8.9/transforms/255f9c640e3d94628dd28b431cd49f42/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/wong/.gradle/caches/8.9/transforms/c35a2fd9454984fa3f16e62a5240a382/transformed/profileinstaller-1.4.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/wong/.gradle/caches/8.9/transforms/c35a2fd9454984fa3f16e62a5240a382/transformed/profileinstaller-1.4.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/wong/.gradle/caches/8.9/transforms/0ba8c91d2629ff8cd4d15d4d3ed297eb/transformed/startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/wong/.gradle/caches/8.9/transforms/0ba8c91d2629ff8cd4d15d4d3ed297eb/transformed/startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+	tools:node
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /home/wong/.gradle/caches/8.9/transforms/8530266956caadc703ac54a29b2580fe/transformed/emoji2-1.3.0/AndroidManifest.xml:28:13-31
+	android:authorities
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /home/wong/.gradle/caches/8.9/transforms/8530266956caadc703ac54a29b2580fe/transformed/emoji2-1.3.0/AndroidManifest.xml:26:13-68
+	android:exported
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /home/wong/.gradle/caches/8.9/transforms/8530266956caadc703ac54a29b2580fe/transformed/emoji2-1.3.0/AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /home/wong/.gradle/caches/8.9/transforms/8530266956caadc703ac54a29b2580fe/transformed/emoji2-1.3.0/AndroidManifest.xml:25:13-67
+meta-data#androidx.emoji2.text.EmojiCompatInitializer
+ADDED from [androidx.emoji2:emoji2:1.3.0] /home/wong/.gradle/caches/8.9/transforms/8530266956caadc703ac54a29b2580fe/transformed/emoji2-1.3.0/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /home/wong/.gradle/caches/8.9/transforms/8530266956caadc703ac54a29b2580fe/transformed/emoji2-1.3.0/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /home/wong/.gradle/caches/8.9/transforms/8530266956caadc703ac54a29b2580fe/transformed/emoji2-1.3.0/AndroidManifest.xml:30:17-75
+meta-data#androidx.lifecycle.ProcessLifecycleInitializer
+ADDED from [androidx.lifecycle:lifecycle-process:2.6.2] /home/wong/.gradle/caches/8.9/transforms/255f9c640e3d94628dd28b431cd49f42/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.lifecycle:lifecycle-process:2.6.2] /home/wong/.gradle/caches/8.9/transforms/255f9c640e3d94628dd28b431cd49f42/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.lifecycle:lifecycle-process:2.6.2] /home/wong/.gradle/caches/8.9/transforms/255f9c640e3d94628dd28b431cd49f42/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:30:17-78
+uses-library#androidx.window.extensions
+ADDED from [androidx.window:window:1.0.0] /home/wong/.gradle/caches/8.9/transforms/0b5a68d2a8618a2c1a2fc87898f4b434/transformed/window-1.0.0/AndroidManifest.xml:25:9-27:40
+	android:required
+		ADDED from [androidx.window:window:1.0.0] /home/wong/.gradle/caches/8.9/transforms/0b5a68d2a8618a2c1a2fc87898f4b434/transformed/window-1.0.0/AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [androidx.window:window:1.0.0] /home/wong/.gradle/caches/8.9/transforms/0b5a68d2a8618a2c1a2fc87898f4b434/transformed/window-1.0.0/AndroidManifest.xml:26:13-54
+uses-library#androidx.window.sidecar
+ADDED from [androidx.window:window:1.0.0] /home/wong/.gradle/caches/8.9/transforms/0b5a68d2a8618a2c1a2fc87898f4b434/transformed/window-1.0.0/AndroidManifest.xml:28:9-30:40
+	android:required
+		ADDED from [androidx.window:window:1.0.0] /home/wong/.gradle/caches/8.9/transforms/0b5a68d2a8618a2c1a2fc87898f4b434/transformed/window-1.0.0/AndroidManifest.xml:30:13-37
+	android:name
+		ADDED from [androidx.window:window:1.0.0] /home/wong/.gradle/caches/8.9/transforms/0b5a68d2a8618a2c1a2fc87898f4b434/transformed/window-1.0.0/AndroidManifest.xml:29:13-51
+permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.0] /home/wong/.gradle/caches/8.9/transforms/fc0d39662a5a92d1b27fe62c07598897/transformed/core-1.13.0/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.13.0] /home/wong/.gradle/caches/8.9/transforms/fc0d39662a5a92d1b27fe62c07598897/transformed/core-1.13.0/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.13.0] /home/wong/.gradle/caches/8.9/transforms/fc0d39662a5a92d1b27fe62c07598897/transformed/core-1.13.0/AndroidManifest.xml:23:9-81
+permission#com.example.notes.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.0] /home/wong/.gradle/caches/8.9/transforms/fc0d39662a5a92d1b27fe62c07598897/transformed/core-1.13.0/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.13.0] /home/wong/.gradle/caches/8.9/transforms/fc0d39662a5a92d1b27fe62c07598897/transformed/core-1.13.0/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.13.0] /home/wong/.gradle/caches/8.9/transforms/fc0d39662a5a92d1b27fe62c07598897/transformed/core-1.13.0/AndroidManifest.xml:23:9-81
+uses-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.0] /home/wong/.gradle/caches/8.9/transforms/fc0d39662a5a92d1b27fe62c07598897/transformed/core-1.13.0/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.13.0] /home/wong/.gradle/caches/8.9/transforms/fc0d39662a5a92d1b27fe62c07598897/transformed/core-1.13.0/AndroidManifest.xml:26:22-94
+uses-permission#com.example.notes.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.0] /home/wong/.gradle/caches/8.9/transforms/fc0d39662a5a92d1b27fe62c07598897/transformed/core-1.13.0/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.13.0] /home/wong/.gradle/caches/8.9/transforms/fc0d39662a5a92d1b27fe62c07598897/transformed/core-1.13.0/AndroidManifest.xml:26:22-94
+meta-data#androidx.profileinstaller.ProfileInstallerInitializer
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/wong/.gradle/caches/8.9/transforms/c35a2fd9454984fa3f16e62a5240a382/transformed/profileinstaller-1.4.0/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/wong/.gradle/caches/8.9/transforms/c35a2fd9454984fa3f16e62a5240a382/transformed/profileinstaller-1.4.0/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/wong/.gradle/caches/8.9/transforms/c35a2fd9454984fa3f16e62a5240a382/transformed/profileinstaller-1.4.0/AndroidManifest.xml:30:17-85
+receiver#androidx.profileinstaller.ProfileInstallReceiver
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/wong/.gradle/caches/8.9/transforms/c35a2fd9454984fa3f16e62a5240a382/transformed/profileinstaller-1.4.0/AndroidManifest.xml:34:9-52:20
+	android:enabled
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/wong/.gradle/caches/8.9/transforms/c35a2fd9454984fa3f16e62a5240a382/transformed/profileinstaller-1.4.0/AndroidManifest.xml:37:13-35
+	android:exported
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/wong/.gradle/caches/8.9/transforms/c35a2fd9454984fa3f16e62a5240a382/transformed/profileinstaller-1.4.0/AndroidManifest.xml:38:13-36
+	android:permission
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/wong/.gradle/caches/8.9/transforms/c35a2fd9454984fa3f16e62a5240a382/transformed/profileinstaller-1.4.0/AndroidManifest.xml:39:13-57
+	android:directBootAware
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/wong/.gradle/caches/8.9/transforms/c35a2fd9454984fa3f16e62a5240a382/transformed/profileinstaller-1.4.0/AndroidManifest.xml:36:13-44
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/wong/.gradle/caches/8.9/transforms/c35a2fd9454984fa3f16e62a5240a382/transformed/profileinstaller-1.4.0/AndroidManifest.xml:35:13-76
+intent-filter#action:name:androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/wong/.gradle/caches/8.9/transforms/c35a2fd9454984fa3f16e62a5240a382/transformed/profileinstaller-1.4.0/AndroidManifest.xml:40:13-42:29
+action#androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/wong/.gradle/caches/8.9/transforms/c35a2fd9454984fa3f16e62a5240a382/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:17-91
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/wong/.gradle/caches/8.9/transforms/c35a2fd9454984fa3f16e62a5240a382/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:25-88
+intent-filter#action:name:androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/wong/.gradle/caches/8.9/transforms/c35a2fd9454984fa3f16e62a5240a382/transformed/profileinstaller-1.4.0/AndroidManifest.xml:43:13-45:29
+action#androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/wong/.gradle/caches/8.9/transforms/c35a2fd9454984fa3f16e62a5240a382/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:17-85
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/wong/.gradle/caches/8.9/transforms/c35a2fd9454984fa3f16e62a5240a382/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:25-82
+intent-filter#action:name:androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/wong/.gradle/caches/8.9/transforms/c35a2fd9454984fa3f16e62a5240a382/transformed/profileinstaller-1.4.0/AndroidManifest.xml:46:13-48:29
+action#androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/wong/.gradle/caches/8.9/transforms/c35a2fd9454984fa3f16e62a5240a382/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:17-88
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/wong/.gradle/caches/8.9/transforms/c35a2fd9454984fa3f16e62a5240a382/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:25-85
+intent-filter#action:name:androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/wong/.gradle/caches/8.9/transforms/c35a2fd9454984fa3f16e62a5240a382/transformed/profileinstaller-1.4.0/AndroidManifest.xml:49:13-51:29
+action#androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/wong/.gradle/caches/8.9/transforms/c35a2fd9454984fa3f16e62a5240a382/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:17-95
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /home/wong/.gradle/caches/8.9/transforms/c35a2fd9454984fa3f16e62a5240a382/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:25-92

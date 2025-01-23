@@ -1,0 +1,27 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <SwitchPreferenceCompat
+        android:key="dark_mode"
+        android:title="Dark Mode"
+        android:defaultValue="false"
+        app:allowDividerAbove="true"
+        app:allowDividerBelow="true"/>
+
+    <ListPreference
+        android:key="sort_by"
+        android:title="Sort Notes By"
+        android:defaultValue="timestamp"
+        android:entries="@array/sort_options"
+        android:entryValues="@array/sort_values"
+        android:summary="%s"
+        app:allowDividerAbove="true"
+        app:allowDividerBelow="true"/>
+
+    <Preference
+        android:key="manage_categories"
+        android:title="Manage Categories"
+        app:allowDividerAbove="true"
+        app:allowDividerBelow="true"/>
+
+</PreferenceScreen>

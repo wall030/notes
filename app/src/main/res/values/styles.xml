@@ -19,5 +19,9 @@
         <item name="android:dividerHeight">2dp</item>
     </style>
 
+    <style name="CustomSwitchPreferenceCompat" parent="PreferenceThemeOverlay">
+        <item name="colorControlActivated">@color/toggle_color</item>
+    </style>
+
 
 </resources>
