@@ -19,6 +19,14 @@
 
 
     <color name="toggle_color">#ececec</color>
+
     <color name="card_light_background">#FFFFFF</color>
+    <color name="card_dark_background">#1c1c1e</color>
+
+    <color name="icon_light_color">#FFFFFF</color>
+    <color name="icon_dark_color">#1B1B1B</color>
+
+    <color name="searchbar_light">#F6F6F6</color>
+    <color name="searchbar_dark">#18181A</color>
 
 </resources>

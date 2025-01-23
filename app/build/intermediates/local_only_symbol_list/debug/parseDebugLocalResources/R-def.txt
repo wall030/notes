@@ -10,9 +10,13 @@ color card_light_background
 color fab_background
 color green_dark
 color green_light
+color icon_dark_color
+color icon_light_color
+color searchbar_dark
+color searchbar_light
 color text_color_primary
+color toggle_color
 color white
-color your_toggle_color
 dimen fab_margin
 drawable back_arrow_24
 drawable baseline_circle_1
@@ -35,6 +39,7 @@ drawable ic_menu
 drawable more_24
 drawable preference_border
 drawable searchview_background
+drawable searchview_background_dark
 drawable spinner_background
 id FirstFragment
 id SecondFragment
@@ -90,6 +95,7 @@ string previous
 string second_fragment_label
 style Base.Theme.Notes
 style CustomSearchView
+style CustomSearchViewDark
 style CustomSwitchPreferenceCompat
 style CustomTextField
 style PreferenceTheme

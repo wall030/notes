@@ -44,20 +44,16 @@
         "source": "/home/wong/.gradle/daemon/8.9/com.example.notes.app-main-46:/layout/card_container.xml"
     },
     {
-        "merged": "/home/wong/.gradle/daemon/8.9/com.example.notes.app-debug-44:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "/home/wong/.gradle/daemon/8.9/com.example.notes.app-main-46:/mipmap-xxxhdpi/ic_launcher_round.webp"
-    },
-    {
         "merged": "/home/wong/.gradle/daemon/8.9/com.example.notes.app-debug-44:/drawable_preference_border.xml.flat",
         "source": "/home/wong/.gradle/daemon/8.9/com.example.notes.app-main-46:/drawable/preference_border.xml"
     },
     {
-        "merged": "/home/wong/.gradle/daemon/8.9/com.example.notes.app-debug-44:/drawable_baseline_circle_5.xml.flat",
-        "source": "/home/wong/.gradle/daemon/8.9/com.example.notes.app-main-46:/drawable/baseline_circle_5.xml"
+        "merged": "/home/wong/.gradle/daemon/8.9/com.example.notes.app-debug-44:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "/home/wong/.gradle/daemon/8.9/com.example.notes.app-main-46:/mipmap-xxxhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.notes.app-debug-44:/layout_activity_main.xml.flat",
-        "source": "com.example.notes.app-main-46:/layout/activity_main.xml"
+        "merged": "/home/wong/.gradle/daemon/8.9/com.example.notes.app-debug-44:/drawable_baseline_circle_5.xml.flat",
+        "source": "/home/wong/.gradle/daemon/8.9/com.example.notes.app-main-46:/drawable/baseline_circle_5.xml"
     },
     {
         "merged": "/home/wong/.gradle/daemon/8.9/com.example.notes.app-debug-44:/drawable_ic_launcher_background.xml.flat",
@@ -70,6 +66,10 @@
     {
         "merged": "/home/wong/.gradle/daemon/8.9/com.example.notes.app-debug-44:/drawable_baseline_circle_1.xml.flat",
         "source": "/home/wong/.gradle/daemon/8.9/com.example.notes.app-main-46:/drawable/baseline_circle_1.xml"
+    },
+    {
+        "merged": "/home/wong/.gradle/daemon/8.9/com.example.notes.app-debug-44:/drawable_searchview_background_dark.xml.flat",
+        "source": "/home/wong/.gradle/daemon/8.9/com.example.notes.app-main-46:/drawable/searchview_background_dark.xml"
     },
     {
         "merged": "/home/wong/.gradle/daemon/8.9/com.example.notes.app-debug-44:/drawable_baseline_circle_8.xml.flat",
@@ -140,6 +140,10 @@
         "source": "/home/wong/.gradle/daemon/8.9/com.example.notes.app-main-46:/xml/backup_rules.xml"
     },
     {
+        "merged": "com.example.notes.app-debug-44:/drawable_searchview_background.xml.flat",
+        "source": "com.example.notes.app-main-46:/drawable/searchview_background.xml"
+    },
+    {
         "merged": "/home/wong/.gradle/daemon/8.9/com.example.notes.app-debug-44:/drawable_baseline_circle_11.xml.flat",
         "source": "/home/wong/.gradle/daemon/8.9/com.example.notes.app-main-46:/drawable/baseline_circle_11.xml"
     },
@@ -150,6 +154,10 @@
     {
         "merged": "/home/wong/.gradle/daemon/8.9/com.example.notes.app-debug-44:/drawable_baseline_circle_7.xml.flat",
         "source": "/home/wong/.gradle/daemon/8.9/com.example.notes.app-main-46:/drawable/baseline_circle_7.xml"
+    },
+    {
+        "merged": "com.example.notes.app-debug-44:/drawable_searchview_background_dark.xml.flat",
+        "source": "com.example.notes.app-main-46:/drawable/searchview_background_dark.xml"
     },
     {
         "merged": "/home/wong/.gradle/daemon/8.9/com.example.notes.app-debug-44:/menu_menu_main.xml.flat",

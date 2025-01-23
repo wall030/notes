@@ -3,8 +3,11 @@
     <style name="Base.Theme.Notes" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:windowBackground">@color/background_color_dark</item> 
         <item name="cardBackgroundColor">@color/card_dark_background</item>
+        <item name="colorControlNormal">@color/icon_light_color</item>
         <item name="android:textColorPrimary">@color/green_dark</item>
         <item name="colorControlActivated">@color/green_dark</item>
+
+        <item name="searchViewStyle">@style/CustomSearchViewDark</item>
 
     </style>
     <style name="Theme.Notes" parent="Base.Theme.Notes"/>
