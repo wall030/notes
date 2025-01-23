@@ -18,6 +18,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "notes.db";
     private static final int DATABASE_VERSION = 1;
+
     public static final String TABLE_NOTES = "notes";
     public static final String COLUMN_NOTES_ID = "id";
     public static final String COLUMN_NOTES_TITLE = "title";
@@ -29,12 +30,6 @@ public class DatabaseManager extends SQLiteOpenHelper {
     public static final String TABLE_CATEGORIES = "categories";
     public static final String COLUMN_CATEGORIES_ID = "id";
     public static final String COLUMN_CATEGORIES_NAME = "name";
-
-
-
-
-    //dddddddddddddddddddddd
-
 
 
 

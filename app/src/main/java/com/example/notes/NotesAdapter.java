@@ -63,7 +63,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NoteViewHold
     }
 
     public static void attachSwipeToDelete(RecyclerView recyclerView, NotesAdapter adapter, DatabaseManager db, Context context) {
-        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
             @Override
             public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
                 return false;
@@ -72,12 +72,8 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NoteViewHold
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                 int position = viewHolder.getAdapterPosition();
+                if (direction == ItemTouchHelper.LEFT) {
 
-                if (direction == ItemTouchHelper.RIGHT) {
-                    // Kategorien verwalten
-                    adapter.showCategoryManagementMenu(position);
-                } else {
-                    // Linkswischen zum Löschen
                     Note note = adapter.notes.get(position);
                     db.deleteNoteById(note.getId());
                     adapter.notes.remove(position);
@@ -85,7 +81,6 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NoteViewHold
                 }
             }
         });
-
         itemTouchHelper.attachToRecyclerView(recyclerView);
     }
 
@@ -99,7 +94,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NoteViewHold
                 showDeleteCategoryDialog(position);
             }
         });
-        builder.setOnDismissListener(d -> notifyItemChanged(position)); // Ansicht zurücksetzen
+        builder.setOnDismissListener(d -> notifyItemChanged(position)); // reset view
         builder.show();
     }
 

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.widget.EditText;
 
 import androidx.appcompat.widget.SearchView;
@@ -24,6 +25,7 @@ public class MainPage extends GlobalActivity {
     private DatabaseManager db;
     private SharedPreferences preferences;
     private SharedPreferences.OnSharedPreferenceChangeListener preferenceChangeListener;
+    private String TAG = "MainPage";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,23 +93,18 @@ public class MainPage extends GlobalActivity {
 
     private void loadNotes(String sortBy) {
         try {
-            // Lade alle Notizen
             notes.clear();
             notes.addAll(db.getAllNotes(sortBy));
             filteredNotes.clear();
             filteredNotes.addAll(notes);
 
-            // Überprüfen, ob Notizen vorhanden sind
             if (notes.isEmpty()) {
-                // Optional: Zeige eine Meldung oder einen Platzhalter
-                System.out.println("Keine Notizen vorhanden.");
+                Log.i(TAG, "No stored notes");
             }
 
             adapter.notifyDataSetChanged();
         } catch (Exception e) {
-            e.printStackTrace();
-            // Optional: Zeige eine Fehlermeldung
-            System.out.println("Fehler beim Laden der Notizen: " + e.getMessage());
+            Log.e(TAG, "Error while getting notes");
         }
     }
 
