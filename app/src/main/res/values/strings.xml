@@ -6,6 +6,8 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+    <string name="detail_page_content_hint">Enter your notes here...</string>
+    <string name="detail_page_title_hint">Enter Title...</string>
 
     <string-array name="sort_options">
         <item>Timestamp</item>

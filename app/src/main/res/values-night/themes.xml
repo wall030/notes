@@ -5,7 +5,6 @@
         <item name="colorControlNormal">@color/icon_light_color</item>
         <item name="android:textColorPrimary">@color/green_dark</item>
         <item name="colorControlActivated">@color/green_dark</item>
-
         <item name="searchViewStyle">@style/CustomSearchViewDark</item>
 
     </style>

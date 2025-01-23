@@ -18,13 +18,14 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <!-- Titel der Notiz -->
         <TextView
             android:id="@+id/card_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="?android:textColorPrimary" />
+            android:textColor="?android:textColorPrimary"
+            android:maxLines="2"
+            android:ellipsize="end"/>
 
 
         <TextView

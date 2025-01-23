@@ -20,7 +20,7 @@
 
     <color name="toggle_color">#ececec</color>
 
-    <color name="card_light_background">#FFFFFF</color>
+    <color name="card_light_background">#FAFAFA</color>
     <color name="card_dark_background">#1c1c1e</color>
 
     <color name="icon_light_color">#FFFFFF</color>
