@@ -12,10 +12,10 @@
         android:key="sort_by"
         android:title="Sort Notes By"
         android:defaultValue="Timestamp"
-        android:entries="@array/sort_options"
-        android:entryValues="@array/sort_values"
         android:summary="Timestamp, Title, or Category"
-        android:dialogTheme="@style/CustomDialogTheme" />
+        android:dialogTheme="@style/CustomDialogTheme"
+        app:allowDividerAbove="true"
+        app:allowDividerBelow="true"/>
 
     <Preference
         android:key="manage_categories"

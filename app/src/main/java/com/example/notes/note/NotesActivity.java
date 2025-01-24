@@ -7,7 +7,6 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import androidx.appcompat.widget.SearchView;
-import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.core.splashscreen.SplashScreen;
@@ -34,8 +33,8 @@ public class NotesActivity extends GlobalActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        SplashScreen splash = SplashScreen.installSplashScreen(this);
-        preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        SplashScreen.installSplashScreen(this);
+        preferences = getSharedPreferences("AppPreferences", MODE_PRIVATE);
         setContentView(R.layout.activity_main);
 
         db = new DatabaseManager(this);
@@ -91,6 +90,7 @@ public class NotesActivity extends GlobalActivity {
 
     private void loadNotes(String sortBy) {
         try {
+            Log.d(TAG, "Loading notes sorted by: " + sortBy);
             notes.clear();
             notes.addAll(db.getAllNotes(sortBy));
             filteredNotes.clear();

@@ -1,6 +1,6 @@
 package com.example.notes;
 
-import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,6 +11,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
+
+import com.example.notes.category.CategoryManagementActivity;
 
 public class SettingsActivity extends GlobalActivity {
 
@@ -27,14 +29,15 @@ public class SettingsActivity extends GlobalActivity {
 
     public static class SettingsFragment extends PreferenceFragmentCompat {
 
+        private static final String SORT_BY_KEY = "sort_by";
+
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             setPreferencesFromResource(R.xml.preferences, rootKey);
 
-            // Handle the Dark Mode switch
             findPreference("dark_mode").setOnPreferenceChangeListener((preference, newValue) -> {
                 boolean isDarkMode = (boolean) newValue;
-                SharedPreferences preferences = requireContext().getSharedPreferences("AppPreferences", Context.MODE_PRIVATE);
+                SharedPreferences preferences = requireContext().getSharedPreferences("AppPreferences", MODE_PRIVATE);
                 SharedPreferences.Editor editor = preferences.edit();
                 editor.putBoolean("DarkMode", isDarkMode);
                 editor.apply();
@@ -46,11 +49,21 @@ public class SettingsActivity extends GlobalActivity {
                 return true;
             });
 
-            // Handle the "Sort Notes By" preference
-            findPreference("sort_by").setOnPreferenceClickListener(preference -> {
+            findPreference("manage_categories").setOnPreferenceClickListener(preference -> {
+                Intent intent = new Intent(requireContext(), CategoryManagementActivity.class);
+                startActivity(intent);
+                return true;
+            });
+
+            Preference sortByPreference = findPreference(SORT_BY_KEY);
+            sortByPreference.setOnPreferenceClickListener(preference -> {
                 showSortByDialog();
                 return true;
             });
+
+            SharedPreferences preferences = requireContext().getSharedPreferences("AppPreferences", MODE_PRIVATE);
+            String currentSortBy = preferences.getString(SORT_BY_KEY, "timestamp");
+            sortByPreference.setSummary(format(currentSortBy));
         }
 
         private void showSortByDialog() {
@@ -61,8 +74,19 @@ public class SettingsActivity extends GlobalActivity {
 
             AlertDialog dialog = builder.create();
 
-            // Set up the RadioGroup listener
+            SharedPreferences preferences = requireContext().getSharedPreferences("AppPreferences", MODE_PRIVATE);
+            String currentSortBy = preferences.getString("sort_by", "timestamp");
+
+            // RadioGroup setup
             RadioGroup sortOptions = dialogView.findViewById(R.id.sort_notes_options);
+            if ("timestamp".equals(currentSortBy)) {
+                sortOptions.check(R.id.sort_by_timestamp);
+            } else if ("title".equals(currentSortBy)) {
+                sortOptions.check(R.id.sort_by_title);
+            } else if ("category".equals(currentSortBy)) {
+                sortOptions.check(R.id.sort_by_category);
+            }
+
             sortOptions.setOnCheckedChangeListener((group, checkedId) -> {
                 String sortBy = null;
                 if (checkedId == R.id.sort_by_timestamp) {
@@ -74,26 +98,24 @@ public class SettingsActivity extends GlobalActivity {
                 }
 
                 if (sortBy != null) {
-                    // Capitalize the first letter
-                    String formattedSortBy = sortBy.substring(0, 1).toUpperCase() + sortBy.substring(1);
-
-                    // Save to SharedPreferences
-                    SharedPreferences preferences = requireContext().getSharedPreferences("AppPreferences", Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor = preferences.edit();
-                    editor.putString("SortBy", formattedSortBy);
+                    editor.putString("sort_by", sortBy);
                     editor.apply();
 
-                    // Update the summary text
-                    findPreference("sort_by").setSummary(formattedSortBy);
+                    findPreference("sort_by").setSummary(format(sortBy));
 
                     dialog.dismiss();
                 }
             });
 
-            // Set up the Cancel button
             dialogView.findViewById(R.id.cancel_button).setOnClickListener(v -> dialog.dismiss());
 
             dialog.show();
+        }
+
+        private String format(String input) {
+            if (input == null || input.isEmpty()) return input;
+            return input.substring(0, 1).toUpperCase() + input.substring(1);
         }
     }
 }
