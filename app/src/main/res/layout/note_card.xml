@@ -20,19 +20,20 @@
 
         <TextView
             android:id="@+id/card_title"
-            android:layout_width="wrap_content"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="?android:textColorPrimary"
+            android:ellipsize="end"
             android:maxLines="2"
-            android:ellipsize="end"/>
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="?android:textColorPrimary" />
 
         <TextView
             android:id="@+id/note_category"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="@color/category_tag_color"
+            android:maxLines="1"
             android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true" />
 
