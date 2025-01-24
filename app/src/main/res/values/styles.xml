@@ -33,9 +33,19 @@
 
     </style>
 
-    <style name="CustomDialogTheme" parent="Theme.AppCompat.Dialog.Alert">
-        <item name="android:colorBackground">@color/category_tag_color</item>
+    <style name="CustomDialogTheme" parent="Theme.MaterialComponents.Light.Dialog">
+        <item name="buttonStyle">@style/RoundedButtonStyle</item>
     </style>
+
+    <style name="RoundedButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="cornerRadius">16dp</item>
+        <item name="backgroundTint">@color/red</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+
+
+
 
 
 </resources>

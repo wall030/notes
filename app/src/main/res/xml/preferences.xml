@@ -8,16 +8,14 @@
         app:allowDividerAbove="true"
         app:allowDividerBelow="true"/>
 
-    <ListPreference
+    <Preference
         android:key="sort_by"
         android:title="Sort Notes By"
-        android:defaultValue="timestamp"
+        android:defaultValue="Timestamp"
         android:entries="@array/sort_options"
         android:entryValues="@array/sort_values"
-        android:summary="%s"
-        android:dialogTheme="@style/CustomDialogTheme"
-        app:allowDividerAbove="true"
-        app:allowDividerBelow="true"/>
+        android:summary="Timestamp, Title, or Category"
+        android:dialogTheme="@style/CustomDialogTheme" />
 
     <Preference
         android:key="manage_categories"
