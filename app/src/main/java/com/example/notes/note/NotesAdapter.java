@@ -1,26 +1,23 @@
-package com.example.notes;
+package com.example.notes.note;
 
 import android.content.Context;
 import android.content.Intent;
-import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.notes.R;
 import com.example.notes.persistence.Category;
 import com.example.notes.persistence.DatabaseManager;
 import com.example.notes.persistence.Note;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NoteViewHolder> {
 
@@ -52,7 +49,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NoteViewHold
         holder.category.setText(category != null ? category.getName() : "No Category");
 
         holder.itemView.setOnClickListener(v -> {
-            Intent editIntent = new Intent(context, DetailPage.class);
+            Intent editIntent = new Intent(context, NotesDetailActivity.class);
             editIntent.putExtra("note_id", note.getId());
             context.startActivity(editIntent);
         });

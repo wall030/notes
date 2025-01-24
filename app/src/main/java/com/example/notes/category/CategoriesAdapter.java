@@ -1,4 +1,4 @@
-package com.example.notes;
+package com.example.notes.category;
 
 
 import android.content.Context;
@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.notes.R;
 import com.example.notes.persistence.DatabaseManager;
 
 import java.util.List;

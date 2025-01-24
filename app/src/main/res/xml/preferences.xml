@@ -15,6 +15,7 @@
         android:entries="@array/sort_options"
         android:entryValues="@array/sort_values"
         android:summary="%s"
+        android:dialogTheme="@style/CustomDialogTheme"
         app:allowDividerAbove="true"
         app:allowDividerBelow="true"/>
 

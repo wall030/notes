@@ -1,4 +1,4 @@
-package com.example.notes;
+package com.example.notes.category;
 
 import android.content.Context;
 import android.view.LayoutInflater;

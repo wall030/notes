@@ -1,4 +1,4 @@
-package com.example.notes;
+package com.example.notes.category;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.notes.R;
 import com.example.notes.persistence.Category;
 import com.example.notes.persistence.DatabaseManager;
 

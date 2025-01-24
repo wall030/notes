@@ -1,4 +1,4 @@
-package com.example.notes;
+package com.example.notes.note;
 
 import android.os.Bundle;
 import android.view.View;
@@ -8,17 +8,17 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import com.example.notes.category.CategorySpinnerAdapter;
+import com.example.notes.GlobalActivity;
+import com.example.notes.R;
 import com.example.notes.persistence.Category;
 import com.example.notes.persistence.DatabaseManager;
 import com.example.notes.persistence.Note;
 import com.example.notes.util.DateUtil;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class DetailPage extends AppCompatActivity {
+public class NotesDetailActivity extends GlobalActivity {
 
     private EditText titleEditText, contentEditText;
     private Spinner categorySpinner;

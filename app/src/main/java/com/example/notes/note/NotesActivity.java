@@ -1,4 +1,4 @@
-package com.example.notes;
+package com.example.notes.note;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -12,12 +12,15 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.core.splashscreen.SplashScreen;
 
+import com.example.notes.GlobalActivity;
+import com.example.notes.R;
+import com.example.notes.SettingsActivity;
 import com.example.notes.persistence.DatabaseManager;
 import com.example.notes.persistence.Note;
 
 import java.util.ArrayList;
 
-public class MainPage extends GlobalActivity {
+public class NotesActivity extends GlobalActivity {
 
     private ArrayList<Note> notes = new ArrayList<>();
     private ArrayList<Note> filteredNotes = new ArrayList<>();
@@ -45,12 +48,12 @@ public class MainPage extends GlobalActivity {
         NotesAdapter.attachSwipeToDelete(recyclerView, adapter, db, this);
 
         findViewById(R.id.fab).setOnClickListener(view -> {
-            Intent intent = new Intent(MainPage.this, DetailPage.class);
+            Intent intent = new Intent(NotesActivity.this, NotesDetailActivity.class);
             startActivity(intent);
         });
 
         findViewById(R.id.menu_icon).setOnClickListener(view -> {
-            Intent intent = new Intent(MainPage.this, SettingsActivity.class);
+            Intent intent = new Intent(NotesActivity.this, SettingsActivity.class);
             startActivity(intent);
         });
 

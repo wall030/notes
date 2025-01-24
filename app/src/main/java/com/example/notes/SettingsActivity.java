@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.preference.PreferenceFragmentCompat;
 import android.os.Bundle;
 
+import com.example.notes.category.CategoryManagementActivity;
+
 public class SettingsActivity extends GlobalActivity {
 
     @Override

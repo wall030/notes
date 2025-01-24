@@ -33,4 +33,9 @@
 
     </style>
 
+    <style name="CustomDialogTheme" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="android:colorBackground">@color/category_tag_color</item>
+    </style>
+
+
 </resources>
