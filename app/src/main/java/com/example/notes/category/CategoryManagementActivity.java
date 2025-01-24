@@ -42,7 +42,36 @@ public class CategoryManagementActivity extends AppCompatActivity {
         categoryRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         loadCategories();
+
         addCategoryButton.setOnClickListener(v -> showAddCategoryDialog());
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        loadCategories();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadCategories();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        db.close();
     }
 
     private void loadCategories() {

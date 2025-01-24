@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.notes.R;
 import com.example.notes.persistence.Category;
 
 import java.util.List;
@@ -29,10 +30,8 @@ public class CategorySpinnerAdapter extends ArrayAdapter<Category> {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         if (convertView == null) {
-            convertView = LayoutInflater.from(context).inflate(android.R.layout.simple_spinner_item, parent, false);
+            convertView = LayoutInflater.from(context).inflate(R.layout.spinner, parent, false);
         }
-        TextView textView = convertView.findViewById(android.R.id.text1);
-        textView.setText(categories.get(position).getName());
         return convertView;
     }
 
@@ -45,4 +44,5 @@ public class CategorySpinnerAdapter extends ArrayAdapter<Category> {
         textView.setText(categories.get(position).getName());
         return convertView;
     }
+
 }

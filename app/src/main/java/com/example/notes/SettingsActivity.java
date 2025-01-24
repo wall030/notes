@@ -27,6 +27,21 @@ public class SettingsActivity extends GlobalActivity {
                 .commit();
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
     public static class SettingsFragment extends PreferenceFragmentCompat {
 
         private static final String SORT_BY_KEY = "sort_by";
@@ -66,6 +81,14 @@ public class SettingsActivity extends GlobalActivity {
             sortByPreference.setSummary(format(currentSortBy));
         }
 
+        @Override
+        public void onResume() {
+            super.onResume();
+            SharedPreferences preferences = requireContext().getSharedPreferences("AppPreferences", MODE_PRIVATE);
+            String currentSortBy = preferences.getString(SORT_BY_KEY, "timestamp");
+            findPreference(SORT_BY_KEY).setSummary(format(currentSortBy));
+        }
+
         private void showSortByDialog() {
             AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
             LayoutInflater inflater = LayoutInflater.from(requireContext());
@@ -77,7 +100,6 @@ public class SettingsActivity extends GlobalActivity {
             SharedPreferences preferences = requireContext().getSharedPreferences("AppPreferences", MODE_PRIVATE);
             String currentSortBy = preferences.getString("sort_by", "timestamp");
 
-            // RadioGroup setup
             RadioGroup sortOptions = dialogView.findViewById(R.id.sort_notes_options);
             if ("timestamp".equals(currentSortBy)) {
                 sortOptions.check(R.id.sort_by_timestamp);

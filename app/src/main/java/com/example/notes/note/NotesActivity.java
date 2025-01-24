@@ -79,13 +79,36 @@ public class NotesActivity extends GlobalActivity {
         };
 
         preferences.registerOnSharedPreferenceChangeListener(preferenceChangeListener);
-
     }
 
     @Override
     protected void onStart() {
         super.onStart();
         loadNotes(preferences.getString("sort_by", "timestamp"));
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadNotes(preferences.getString("sort_by", "timestamp"));
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (preferences != null && preferenceChangeListener != null) {
+            preferences.unregisterOnSharedPreferenceChangeListener(preferenceChangeListener);
+        }
     }
 
     private void loadNotes(String sortBy) {
@@ -102,7 +125,7 @@ public class NotesActivity extends GlobalActivity {
 
             adapter.notifyDataSetChanged();
         } catch (Exception e) {
-            Log.e(TAG, "Error while getting notes");
+            Log.e(TAG, "Error while getting notes", e);
         }
     }
 
@@ -119,13 +142,5 @@ public class NotesActivity extends GlobalActivity {
             }
         }
         adapter.notifyDataSetChanged();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if (preferences != null && preferenceChangeListener != null) {
-            preferences.unregisterOnSharedPreferenceChangeListener(preferenceChangeListener);
-        }
     }
 }

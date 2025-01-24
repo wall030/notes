@@ -45,7 +45,38 @@ public class NotesDetailActivity extends GlobalActivity {
             loadNoteDetails();
         }
         loadCategories();
+
         saveButton.setOnClickListener(v -> saveNote());
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (noteId != -1) {
+            loadNoteDetails();
+        }
+        loadCategories();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadCategories();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 
     private void loadNoteDetails() {
@@ -78,7 +109,7 @@ public class NotesDetailActivity extends GlobalActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                // nothing to do
+
             }
         });
     }

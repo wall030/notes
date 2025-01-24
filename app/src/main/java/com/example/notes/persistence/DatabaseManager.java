@@ -99,7 +99,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
         if (cursor != null) {
             cursor.close();
         }
-        return -1; // no category found
+        return -1;
     }
 
     public boolean isCategoryInUse(int categoryId) {
@@ -143,7 +143,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
         if (cursor != null) {
             cursor.close();
         }
-        return null; // category not found
+        return null;
     }
 
     // CRUD operations for notes
