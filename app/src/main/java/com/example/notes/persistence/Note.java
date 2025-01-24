@@ -6,7 +6,7 @@ public class Note {
     private int id;
     private String title;
     private String content;
-    private String timestamp; // Ändere den Typ auf long
+    private String timestamp;
     private int categoryId;
 
     public Note(int id, String title, String content, String timestamp, int categoryId) {

@@ -10,6 +10,7 @@ import androidx.appcompat.widget.SearchView;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.core.splashscreen.SplashScreen;
 
 import com.example.notes.persistence.DatabaseManager;
 import com.example.notes.persistence.Note;
@@ -30,6 +31,7 @@ public class MainPage extends GlobalActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        SplashScreen splash = SplashScreen.installSplashScreen(this);
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
         setContentView(R.layout.activity_main);
 

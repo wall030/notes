@@ -37,17 +37,17 @@ public class DatabaseManager extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String createNotesTable = "CREATE TABLE " + TABLE_NOTES + " (" +
-                COLUMN_NOTES_ID + "INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                COLUMN_NOTES_TITLE + "TEXT, " +
-                COLUMN_NOTES_CONTENT + "TEXT, " +
-                COLUMN_NOTES_TIMESTAMP + "LONG, " +
-                COLUMN_NOTES_CATEGORY_ID + "INTEGER DEFAULT -1" +
+                COLUMN_NOTES_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                COLUMN_NOTES_TITLE + " TEXT, " +
+                COLUMN_NOTES_CONTENT + " TEXT, " +
+                COLUMN_NOTES_TIMESTAMP + " LONG, " +
+                COLUMN_NOTES_CATEGORY_ID + " INTEGER DEFAULT -1" +
                 ")";
         db.execSQL(createNotesTable);
 
         String createCategoriesTable = "CREATE TABLE " + TABLE_CATEGORIES + " (" +
-                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "name TEXT UNIQUE" +
+                COLUMN_CATEGORIES_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                COLUMN_CATEGORIES_NAME + " TEXT UNIQUE" +
                 ")";
         db.execSQL(createCategoriesTable);
     }
@@ -59,7 +59,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    // CRUD-Operationen für Kategorien
+    // CRUD operations for categories
     public void insertCategory(String name) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -84,14 +84,6 @@ public class DatabaseManager extends SQLiteOpenHelper {
         }
 
         return categories;
-    }
-    public List<String> getAllCategoriesAsStringList() {
-        List<String> categoryNames = new ArrayList<>();
-        List<Category> categories = getAllCategories();
-        for (Category category : categories) {
-            categoryNames.add(category.getName());
-        }
-        return categoryNames;
     }
 
     public int getCategoryIdByName(String name) {
@@ -133,13 +125,6 @@ public class DatabaseManager extends SQLiteOpenHelper {
     public void deleteCategoryById(int categoryId) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_CATEGORIES, COLUMN_CATEGORIES_ID + " = ?", new String[]{String.valueOf(categoryId)});
-    }
-
-    public void updateCategory(int categoryId, String name) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put("name", name);
-        db.update(TABLE_CATEGORIES, values, COLUMN_CATEGORIES_ID + " = ?", new String[]{String.valueOf(categoryId)});
     }
 
     public Category getCategoryById(int categoryId) {
@@ -241,7 +226,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
         values.put(COLUMN_NOTES_TITLE, title);
         values.put(COLUMN_NOTES_CONTENT, content);
         values.put(COLUMN_NOTES_TIMESTAMP, timestamp);
-        values.put(COLUMN_CATEGORIES_ID, categoryId);
+        values.put(COLUMN_NOTES_CATEGORY_ID, categoryId);
         db.update(TABLE_NOTES, values, "id = ?", new String[]{String.valueOf(noteId)});
     }
 

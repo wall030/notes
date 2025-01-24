@@ -1,5 +1,5 @@
 <resources>
-    <!-- Hintergrundfarbe -->
+    <!-- backgroundcolor -->
     <color name="background_color_light">#FFFFFF</color>
     <color name="background_color_dark">#121212</color>
 
@@ -8,9 +8,6 @@
     <color name="white">#FFFFFF</color>
     <color name="text_dark">#1D1D1D</color>
     <color name="text_light">#FFFFFF</color>
-
-    <!-- Floating Action Button -->
-    <color name="fab_background">#2FB874</color>
 
     <!-- Header Border -->
     <color name="border_color">#6D6D6D</color>
