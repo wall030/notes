@@ -5,7 +5,7 @@
         <item name="colorControlActivated">@color/toggle_color</item>
         <item name="cardBackgroundColor">@color/card_light_background</item>
         <item name="colorControlNormal">@color/icon_dark_color</item>
-        <item name="searchViewStyle">@style/CustomSearchView</item>
+        <item name="android:textColorSecondary">@color/text_dark</item>
     </style>
     <style name="Theme.Notes" parent="Base.Theme.Notes" />
 

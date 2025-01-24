@@ -1,8 +1,8 @@
 package com.example.notes;
 
 import android.os.Bundle;
-import android.text.InputType;
-import android.view.WindowManager;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.notes.persistence.Category;
 import com.example.notes.persistence.DatabaseManager;
 
 import java.util.ArrayList;
@@ -30,21 +31,16 @@ public class CategoryManagementActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category_management);
-
         db = new DatabaseManager(this);
 
         categoryRecyclerView = findViewById(R.id.category_recycler_view);
         addCategoryButton = findViewById(R.id.add_category_button);
 
-        // Set up RecyclerView
         categoriesAdapter = new CategoriesAdapter(categoriesList, this, db);
         categoryRecyclerView.setAdapter(categoriesAdapter);
         categoryRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // Load categories
         loadCategories();
-
-        // Add Category button
         addCategoryButton.setOnClickListener(v -> showAddCategoryDialog());
     }
 
@@ -56,45 +52,37 @@ public class CategoryManagementActivity extends AppCompatActivity {
     }
 
     private void showAddCategoryDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Add New Category");
+        LayoutInflater inflater = LayoutInflater.from(this);
+        View dialogView = inflater.inflate(R.layout.add_category_dialog, null);
 
-        // Create EditText for category input
-        EditText input = new EditText(this);
-        input.setHint("Enter Category Name");
-        input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_SENTENCES);
-        input.setFocusable(true);
-        input.setFocusableInTouchMode(true);
+        AlertDialog dialog = new AlertDialog.Builder(this)
+                .setView(dialogView)
+                .create();
 
-        builder.setView(input);
+        Button cancelButton = dialogView.findViewById(R.id.cancel_button);
+        Button okButton = dialogView.findViewById(R.id.ok_button);
 
-        builder.setPositiveButton("Add", null);
-        builder.setNegativeButton("Cancel", (dialog, which) -> dialog.dismiss());
-
-        AlertDialog dialog = builder.create();
-
-        // Set up button logic after dialog is shown
-        dialog.setOnShowListener(d -> {
-            Button addButton = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
-            addButton.setOnClickListener(v -> {
-                String newCategory = input.getText().toString().trim();
-                if (newCategory.isEmpty()) {
-                    input.setError("Category name cannot be empty");
-                    return;
-                }
-
-                if (categoriesList.contains(newCategory)) {
-                    Toast.makeText(this, "Category already exists", Toast.LENGTH_SHORT).show();
-                } else {
-                    db.insertCategory(newCategory);
-                    loadCategories();
-                    Toast.makeText(this, "Category added", Toast.LENGTH_SHORT).show();
-                    dialog.dismiss();
-                }
-            });
+        cancelButton.setOnClickListener(v -> {
+            dialog.dismiss();
         });
 
-        dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+        okButton.setOnClickListener(v -> {
+            EditText input = dialogView.findViewById(R.id.dialog_input);
+            String newCategory = input.getText().toString().trim();
+            if (newCategory.isEmpty()) {
+                input.setError("Category name cannot be empty");
+                return;
+            }
+
+            if (categoriesList.contains(newCategory)) {
+                Toast.makeText(this, "Category already exists", Toast.LENGTH_SHORT).show();
+            } else {
+                db.insertCategory(newCategory);
+                loadCategories();
+                Toast.makeText(this, "Category added", Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
+            }
+        });
         dialog.show();
     }
 }

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:windowBackground="@android:color/transparent"
+    android:background="?android:attr/windowBackground">
+
+    <TextView
+        android:id="@+id/dialog_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/add_category_title_dialog"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/green_dark"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"/>
+
+    <EditText
+        android:id="@+id/dialog_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/add_category_input_hint"
+        android:textColor="?android:textColorSecondary"
+        android:background="@drawable/searchview_background"
+        android:padding="8dp"
+        android:layout_marginBottom="16dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/cancel_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cancel_button"
+            app:cornerRadius="16dp"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#898989"
+            android:layout_marginEnd="8dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/ok_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ok_button"
+            app:cornerRadius="16dp"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/green_dark" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,10 +1,11 @@
 package com.example.notes;
 
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,8 +20,8 @@ import java.util.List;
 public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.CategoryViewHolder> {
 
     private List<String> categories;
-    private Context context;
-    private DatabaseManager db;
+    private final Context context;
+    private final DatabaseManager db;
 
     public CategoriesAdapter(List<String> categories, Context context, DatabaseManager db) {
         this.categories = categories;
@@ -36,7 +37,7 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ca
     @NonNull
     @Override
     public CategoryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_category, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.category_card, parent, false);
         return new CategoryViewHolder(view);
     }
 
@@ -45,7 +46,6 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ca
         String category = categories.get(position);
         holder.categoryName.setText(category);
 
-        // Lange drücken, um die Kategorie zu löschen
         holder.itemView.setOnLongClickListener(v -> {
             showDeleteCategoryDialog(category, position);
             return true;
@@ -58,66 +58,46 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ca
     }
 
     private void showDeleteCategoryDialog(String category, int position) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle("Delete Category");
-        builder.setMessage("Are you sure you want to delete the category \"" + category + "\"?");
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View dialogView = inflater.inflate(R.layout.delete_category_dialog, null);
 
-        builder.setPositiveButton("Delete", (dialog, which) -> {
+        AlertDialog dialog = new AlertDialog.Builder(context)
+                .setView(dialogView)
+                .create();
+
+        String message = context.getString(R.string.delete_category_message, category);
+        TextView messageTextView = dialogView.findViewById(R.id.dialog_message);
+        messageTextView.setText(message);
+
+        Button cancelButton = dialogView.findViewById(R.id.cancel_button);
+        Button deleteButton = dialogView.findViewById(R.id.ok_button);
+
+        cancelButton.setOnClickListener(v -> {
+            dialog.dismiss();
+        });
+
+        deleteButton.setOnClickListener(v -> {
             int categoryId = db.getCategoryIdByName(category);
             if (categoryId != -1) {
                 if (db.safeDeleteCategoryById(categoryId)) {
                     categories.remove(position);
                     notifyDataSetChanged();
                     Toast.makeText(context, "Category deleted", Toast.LENGTH_SHORT).show();
+                    dialog.dismiss();
                 } else {
                     Toast.makeText(context, "Category is in use and cannot be deleted", Toast.LENGTH_SHORT).show();
+                    dialog.dismiss();
                 }
             } else {
                 Toast.makeText(context, "Error deleting category", Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
             }
         });
 
-        builder.setNegativeButton("Cancel", null);
-        builder.show();
-    }
-
-    public void showAddCategoryDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle("Add New Category");
-
-        // Erstelle einen LinearLayout-Container für das EditText
-        final EditText input = new EditText(context);
-        input.setHint("Enter Category Name");
-        input.setFocusable(true);
-        input.setFocusableInTouchMode(true);
-        input.requestFocus();
-
-        // Setze das EditText in den Dialog
-        builder.setView(input);
-
-        builder.setPositiveButton("Add", (dialog, which) -> {
-            String newCategory = input.getText().toString().trim();
-            if (!newCategory.isEmpty()) {
-                if (categories.contains(newCategory)) {
-                    Toast.makeText(context, "Category already exists", Toast.LENGTH_SHORT).show();
-                } else {
-                    db.insertCategory(newCategory);
-                    updateCategories(db.getAllCategoriesAsStringList()); // Liste aktualisieren
-                    Toast.makeText(context, "Category added", Toast.LENGTH_SHORT).show();
-                }
-            } else {
-                Toast.makeText(context, "Category name cannot be empty", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        builder.setNegativeButton("Cancel", null);
-
-        AlertDialog dialog = builder.create();
-        dialog.setOnShowListener(dlg -> input.requestFocus()); // Fokussiere das Eingabefeld
         dialog.show();
     }
 
-    static class CategoryViewHolder extends RecyclerView.ViewHolder {
+    class CategoryViewHolder extends RecyclerView.ViewHolder {
         TextView categoryName;
 
         public CategoryViewHolder(@NonNull View itemView) {

@@ -1,4 +1,4 @@
-package com.example.notes;
+package com.example.notes.persistence;
 
 import com.example.notes.util.DateUtil;
 

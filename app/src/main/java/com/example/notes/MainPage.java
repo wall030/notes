@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
-import android.widget.EditText;
 
 import androidx.appcompat.widget.SearchView;
 import androidx.preference.PreferenceManager;
@@ -13,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.notes.persistence.DatabaseManager;
+import com.example.notes.persistence.Note;
 
 import java.util.ArrayList;
 
@@ -35,28 +35,23 @@ public class MainPage extends GlobalActivity {
 
         db = new DatabaseManager(this);
 
-        // RecyclerView einrichten
         recyclerView = findViewById(R.id.card_container);
         adapter = new NotesAdapter(filteredNotes, db, this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // Swipe-to-Delete aktivieren
         NotesAdapter.attachSwipeToDelete(recyclerView, adapter, db, this);
 
-        // Floating Action Button
         findViewById(R.id.fab).setOnClickListener(view -> {
             Intent intent = new Intent(MainPage.this, DetailPage.class);
             startActivity(intent);
         });
 
-        // Menü-Button für Einstellungen
         findViewById(R.id.menu_icon).setOnClickListener(view -> {
             Intent intent = new Intent(MainPage.this, SettingsActivity.class);
             startActivity(intent);
         });
 
-        // SearchBar einrichten
         SearchView searchView = findViewById(R.id.search_view);
         searchView.setIconifiedByDefault(false);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -73,14 +68,12 @@ public class MainPage extends GlobalActivity {
             }
         });
 
-        // Set up preference change listener
         preferenceChangeListener = (sharedPreferences, key) -> {
             if ("sort_by".equals(key)) {
                 loadNotes(sharedPreferences.getString("sort_by", "timestamp"));
             }
         };
 
-        // Register the listener
         preferences.registerOnSharedPreferenceChangeListener(preferenceChangeListener);
 
     }

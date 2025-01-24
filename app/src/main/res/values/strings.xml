@@ -1,13 +1,25 @@
 <resources>
     <string name="app_name">notes</string>
     <string name="action_settings">Settings</string>
+
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+
+
     <string name="detail_page_content_hint">Enter your notes here...</string>
     <string name="detail_page_title_hint">Enter Title...</string>
+    <string name="add_category_button">Add Category</string>
+    <string name="add_category_title_dialog">Add Category</string>
+    <string name="delete_category_dialog_title">Delete Category</string>
+    <string name="delete_category_message">Are you sure you want to delete the category \'"%1$s"\'?</string>
+    <string name="cancel_button">Cancel</string>
+    <string name="delete_button">DELETE</string>
+    <string name="ok_button">OK</string>
+    <string name="add_category_input_hint">Enter your input</string>
+
 
     <string-array name="sort_options">
         <item>Timestamp</item>

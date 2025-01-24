@@ -56,7 +56,5 @@ public class SettingsActivity extends GlobalActivity {
             });
 
         }
-
-
     }
 }

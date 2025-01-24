@@ -10,6 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.notes.persistence.Category;
+
 import java.util.List;
 
 public class CategorySpinnerAdapter extends ArrayAdapter<Category> {

@@ -9,7 +9,7 @@
     android:layout_marginBottom="5dp"
     android:layout_marginRight="16dp"
     app:cardCornerRadius="12dp"
-    app:cardElevation="1dp"
+    app:cardElevation="0dp"
     app:cardBackgroundColor="?attr/cardBackgroundColor">
 
     <RelativeLayout
@@ -27,13 +27,12 @@
             android:maxLines="2"
             android:ellipsize="end"/>
 
-
         <TextView
             android:id="@+id/note_category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textColor="@android:color/holo_blue_dark"
+            android:textColor="@color/category_tag_color"
             android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true" />
 

@@ -5,8 +5,7 @@
         <item name="colorControlNormal">@color/icon_light_color</item>
         <item name="android:textColorPrimary">@color/green_dark</item>
         <item name="colorControlActivated">@color/green_dark</item>
-        <item name="searchViewStyle">@style/CustomSearchViewDark</item>
-
+        <item name="android:textColorSecondary">@color/text_light</item>
     </style>
     <style name="Theme.Notes" parent="Base.Theme.Notes" />
 </resources>

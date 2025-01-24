@@ -15,16 +15,18 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.notes.persistence.Category;
 import com.example.notes.persistence.DatabaseManager;
+import com.example.notes.persistence.Note;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NoteViewHolder> {
 
-    private ArrayList<Note> notes;
-    private DatabaseManager db;
-    private Context context;
+    private final ArrayList<Note> notes;
+    private final DatabaseManager db;
+    private final Context context;
 
     public NotesAdapter(ArrayList<Note> notes, DatabaseManager db, Context context) {
         this.notes = notes;
@@ -49,7 +51,6 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NoteViewHold
         Category category = db.getCategoryById(note.getCategoryId());
         holder.category.setText(category != null ? category.getName() : "No Category");
 
-        // Klick-Logik für das Bearbeiten einer Notiz
         holder.itemView.setOnClickListener(v -> {
             Intent editIntent = new Intent(context, DetailPage.class);
             editIntent.putExtra("note_id", note.getId());
@@ -79,73 +80,10 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NoteViewHold
                     adapter.notes.remove(position);
                     adapter.notifyItemRemoved(position);
                 }
+                Toast.makeText(context, "Note deleted", Toast.LENGTH_SHORT).show();
             }
         });
         itemTouchHelper.attachToRecyclerView(recyclerView);
-    }
-
-    private void showCategoryManagementMenu(int position) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle("Manage Categories");
-        builder.setItems(new String[]{"Add New Category", "Delete Category"}, (dialog, which) -> {
-            if (which == 0) {
-                showAddCategoryDialog(position);
-            } else {
-                showDeleteCategoryDialog(position);
-            }
-        });
-        builder.setOnDismissListener(d -> notifyItemChanged(position)); // reset view
-        builder.show();
-    }
-
-    private void showAddCategoryDialog(int position) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle("Add New Category");
-
-        EditText input = new EditText(context);
-        input.setHint("Enter Category Name");
-        input.setInputType(InputType.TYPE_CLASS_TEXT);
-        builder.setView(input);
-
-        builder.setPositiveButton("Add", (dialog, which) -> {
-            String newCategory = input.getText().toString().trim();
-            if (!newCategory.isEmpty()) {
-                if (db.getCategoryIdByName(newCategory) != -1) {
-                    Toast.makeText(context, "Category already exists", Toast.LENGTH_SHORT).show();
-                } else {
-                    db.insertCategory(newCategory);
-                    Toast.makeText(context, "Category added", Toast.LENGTH_SHORT).show();
-                }
-            } else {
-                Toast.makeText(context, "Category name cannot be empty", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        builder.setNegativeButton("Cancel", null);
-        builder.show();
-    }
-
-    private void showDeleteCategoryDialog(int position) {
-        List<Category> categories = db.getAllCategories();
-        if (categories.isEmpty()) {
-            Toast.makeText(context, "No categories to delete", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        String[] categoryNames = categories.stream().map(Category::getName).toArray(String[]::new);
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle("Delete Category");
-        builder.setItems(categoryNames, (dialog, which) -> {
-            int categoryId = categories.get(which).getId();
-            if (db.safeDeleteCategoryById(categoryId)) {
-                Toast.makeText(context, "Category deleted", Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(context, "Category is in use and cannot be deleted", Toast.LENGTH_SHORT).show();
-            }
-        });
-        builder.setNegativeButton("Cancel", null);
-        builder.show();
     }
 
     static class NoteViewHolder extends RecyclerView.ViewHolder {

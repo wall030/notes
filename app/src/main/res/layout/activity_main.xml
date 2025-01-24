@@ -33,7 +33,7 @@
             android:iconifiedByDefault="false"
             android:layout_centerVertical="true"
             android:queryHint="Search notes"
-            style="?attr/searchViewStyle"/>
+            style="@style/CustomTextField"/>
 
         <View
             android:id="@+id/header_border"
